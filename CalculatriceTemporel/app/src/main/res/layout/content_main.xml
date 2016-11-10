@@ -15,7 +15,7 @@
     tools:context="com.gabriel.gagnier.calculatricetemporel.MainActivity">
 
     <Button
-        android:text="Date"
+        android:text="Calendrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -26,5 +26,17 @@
         android:layout_marginTop="14dp"
         android:id="@+id/buttonTimePicker"
         android:onClick="showDatePickerDialog"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd/MM/yyyy"
+        android:inputType="date"
+        android:ems="10"
+        android:layout_alignBottom="@+id/buttonTimePicker"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editTextDatePicker" />
+
 
 </RelativeLayout>

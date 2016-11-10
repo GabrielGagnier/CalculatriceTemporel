@@ -4,9 +4,12 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import android.os.Bundle;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -29,6 +32,11 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        //TODO Do something with the date chosen by the user
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        c.set(year,month,day);
+        String date = format.format(c.getTime());
+        EditText editTextDatePicker = (EditText) getActivity().findViewById(R.id.editTextDatePicker);
+        editTextDatePicker.setText(date);
     }
 }
