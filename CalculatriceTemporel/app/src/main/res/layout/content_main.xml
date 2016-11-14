@@ -14,29 +14,34 @@
     tools:showIn="@layout/activity_main"
     tools:context="com.gabriel.gagnier.calculatricetemporel.MainActivity">
 
+
     <Button
-        android:text="Calendrier"
+        android:text="Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:id="@+id/buttonTimePicker"
-        android:onClick="showDatePickerDialog"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp"
+        android:id="@+id/buttonAdd"
+        android:onClick="launchAdd"/>
 
-    <EditText
+    <Button
+        android:text="Delta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dd/MM/yyyy"
-        android:inputType="date"
-        android:ems="10"
-        android:layout_alignBottom="@+id/buttonTimePicker"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/editTextDatePicker" />
+        android:layout_below="@+id/buttonAdd"
+        android:layout_alignLeft="@+id/buttonAdd"
+        android:layout_alignStart="@+id/buttonAdd"
+        android:layout_marginTop="48dp"
+        android:id="@+id/buttonDelta" />
 
-
+    <Button
+        android:text="Notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:id="@+id/buttonNotif"
+        android:layout_below="@+id/buttonDelta"
+        android:layout_alignLeft="@+id/buttonDelta"
+        android:layout_alignStart="@+id/buttonDelta" />
 </RelativeLayout>
