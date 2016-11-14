@@ -11,13 +11,18 @@ import android.util.Log;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    public DataBaseHelper(Context context) {
-        super(context, DB_NAME, null, DATABASE_VERSION);
-    }
-
 
 
     private static final String DB_NAME = "Calculatrice_Temporelle.db";
+    private static final String DB_PATH = "/data/data/com.gabriel.gagnier.calculatricetemporel/databases/";  //Le chemin menant a la bdd
+
+    public DataBaseHelper(Context context) {
+        super(context, DB_NAME, null, DATABASE_VERSION);
+        this.myContext = context;
+    }
+
+    private  SQLiteDatabase myDataBase;
+    private  final Context myContext;
 
     private static final String TABLE_EVENEMENTS = "evenements";
     private static final String COLUMN_ID = "_id";
@@ -44,15 +49,48 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        Log.w(DataBaseHelper.class.getName(), "upgrading DATABASE from version "+ i + " to " + i1 + ", wich will destroy all data.");
+        Log.w(DataBaseHelper.class.getName(), "upgrading DATABASE from version "+ i + " to " + i1 + ", which will destroy all data.");
 
         sqLiteDatabase.execSQL("DROP TABLE if exists " + TABLE_EVENEMENTS);
 
         onCreate(sqLiteDatabase);
+    }
+
+    public void openDataBase(){
+        String myPath = DB_PATH + DB_NAME;
+
+        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+    }
+
+    @Override
+    public synchronized void close()
+    {
+        if(null != myDataBase)
+            myDataBase.close();
+
+        super.close();
+    }
+
+    public boolean checkDataBase()
+    {
+        SQLiteDatabase checkDB = null;
+
+        try
+        {
+            String myPath = DB_PATH + DB_NAME;
+            checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        if(checkDB != null){
+            checkDB.close();
+        }
+        return checkDB != null ? true : false;
     }
 }
