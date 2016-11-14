@@ -15,6 +15,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DATABASE_VERSION);
     }
 
+
+
     private static final String DB_NAME = "Calculatrice_Temporelle.db";
 
     private static final String TABLE_EVENEMENTS = "evenements";
