@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <Button
-        android:text="Calendrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonTimePicker"
-        android:onClick="showDatePickerDialog"
-        android:layout_weight="0.22" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -18,7 +10,117 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/editTextDatePicker"
-        android:layout_alignBottom="@+id/buttonTimePicker"
         android:layout_weight="0.22"
-        android:text="dd/MM/yyyy" />
-</LinearLayout>
+        android:text="dd/MM/yyyy"
+        android:layout_alignBottom="@+id/buttonTimePicker"
+        android:layout_toRightOf="@+id/buttonTimePicker"
+        android:layout_toEndOf="@+id/buttonTimePicker"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp" />
+
+    <Button
+        android:text="Calendrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonTimePicker"
+        android:onClick="showDatePickerDialog"
+        android:layout_weight="0.22"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/spinnerTime"
+        android:layout_below="@+id/editTextDatePicker"
+        android:layout_alignLeft="@+id/editTextDatePicker"
+        android:layout_alignStart="@+id/editTextDatePicker"
+        android:layout_alignRight="@+id/editTextDatePicker"
+        android:layout_alignEnd="@+id/editTextDatePicker" />
+
+    <TextView
+        android:text="Time :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spinnerTime"
+        android:layout_alignLeft="@+id/buttonTimePicker"
+        android:layout_alignStart="@+id/buttonTimePicker"
+        android:id="@+id/textViewTime"
+        android:layout_toLeftOf="@+id/editTextDatePicker"
+        android:layout_toStartOf="@+id/editTextDatePicker"
+        android:layout_alignBottom="@+id/spinnerTime" />
+
+    <TextView
+        android:text="Add :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTime"
+        android:layout_alignLeft="@+id/textViewTime"
+        android:layout_alignStart="@+id/textViewTime"
+        android:layout_marginTop="32dp"
+        android:id="@+id/textViewAdd"
+        android:layout_alignRight="@+id/textViewTime"
+        android:layout_alignEnd="@+id/textViewTime" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:layout_alignRight="@+id/spinnerTime"
+        android:layout_alignEnd="@+id/spinnerTime"
+        android:id="@+id/editTextAdd"
+        android:layout_alignTop="@+id/textViewAdd"
+        android:text="0" />
+
+    <TextView
+        android:text="Resultat :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextAdd"
+        android:layout_alignLeft="@+id/textViewAdd"
+        android:layout_alignStart="@+id/textViewAdd"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="108dp"
+        android:id="@+id/textViewResultat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewResultat"
+        android:layout_alignLeft="@+id/editTextAdd"
+        android:layout_alignStart="@+id/editTextAdd"
+        android:layout_marginLeft="69dp"
+        android:layout_marginStart="69dp"
+        android:id="@+id/textViewResultatDate" />
+
+    <Button
+        android:text="Calcul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewResultatDate"
+        android:layout_alignLeft="@+id/textViewAdd"
+        android:layout_alignStart="@+id/textViewAdd"
+        android:layout_marginBottom="26dp"
+        android:id="@+id/buttonCalculate"
+        android:onClick="calcul"/>
+
+    <Button
+        android:text="Save Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editTextAdd"
+        android:layout_alignEnd="@+id/editTextAdd"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="41dp"
+        android:id="@+id/buttonEvent"
+        android:onClick="saveEvent"/>
+
+</RelativeLayout>
