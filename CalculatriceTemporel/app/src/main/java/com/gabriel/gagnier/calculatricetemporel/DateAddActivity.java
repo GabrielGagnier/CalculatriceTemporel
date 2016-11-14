@@ -1,6 +1,7 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,9 @@ public class DateAddActivity extends AppCompatActivity {
     }
 
     public void saveEvent(View V){
-
+        final Intent it = new Intent();
+        it.setAction("com.gabriel.gagnier.calculatricetemporel.SAVE");
+        it.putExtra("date",((TextView) findViewById(R.id.textViewResultatDate)).getText().toString());
+        startActivity(it);
     }
 }

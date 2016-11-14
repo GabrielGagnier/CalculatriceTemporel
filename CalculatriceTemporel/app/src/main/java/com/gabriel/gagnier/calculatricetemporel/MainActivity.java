@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchAdd(View V){
         Intent it = new Intent();
-        it.setAction("com.gabriel.gagnier.calculatricetemporel");
+        it.setAction("com.gabriel.gagnier.calculatricetemporel.ADD");
         startActivity(it);
     }
 
