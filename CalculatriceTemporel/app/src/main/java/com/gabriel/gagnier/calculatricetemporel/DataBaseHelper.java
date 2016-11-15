@@ -18,11 +18,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public DataBaseHelper(Context context) {
         super(context, DB_NAME, null, DATABASE_VERSION);
-        this.myContext = context;
     }
 
     private  SQLiteDatabase myDataBase;
-    private  final Context myContext;
 
     private static final String TABLE_EVENEMENTS = "evenements";
     private static final String COLUMN_ID = "_id";
@@ -34,7 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_CREATE = "CREATE TABLE if not exists "
             + TABLE_EVENEMENTS  + "("
-                + COLUMN_ID     + " INTEGER primary key auto_increment, "
+                + COLUMN_ID     + " INTEGER primary key autoincrement, "
                 + LIBELLE       + " TEXT not null, "
                 + DATE          + " TEXT not null, "
                 + COMMENTAIRE   + " TEXT, "
@@ -92,5 +90,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             checkDB.close();
         }
         return checkDB != null ? true : false;
+    }
+
+    public SQLiteDatabase getMyDataBase() {
+        return myDataBase;
     }
 }

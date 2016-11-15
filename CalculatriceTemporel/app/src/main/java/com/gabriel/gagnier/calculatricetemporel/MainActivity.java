@@ -5,14 +5,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
+
+    SQLiteDatabase db;
+    DataBaseHelper mDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        DataBaseHelper mDbHelper = new DataBaseHelper(getApplicationContext());
+        mDbHelper = new DataBaseHelper(getApplicationContext());
 
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        db = mDbHelper.getWritableDatabase();
     }
 
     @Override
@@ -54,6 +59,4 @@ public class MainActivity extends AppCompatActivity {
         it.setAction("com.gabriel.gagnier.calculatricetemporel.ADD");
         startActivity(it);
     }
-
-
 }
