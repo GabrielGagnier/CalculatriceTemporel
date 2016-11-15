@@ -5,9 +5,12 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SaveEventActivity extends AppCompatActivity {
 
@@ -46,6 +49,17 @@ public class SaveEventActivity extends AppCompatActivity {
         cv.put("commentaire",commentaire);
         cv.put("notification",notification);
 
+        DBHelper.openDataBase();
         db.insert(DBHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
+
+
+        Toast.makeText(this, "l'évènement a bien été sauvegardé", Toast.LENGTH_LONG).show();
+
+        Button boutonSave = (Button) findViewById(R.id.buttonSave);
+
+        boutonSave.setEnabled(false);
     }
+
+
+
 }

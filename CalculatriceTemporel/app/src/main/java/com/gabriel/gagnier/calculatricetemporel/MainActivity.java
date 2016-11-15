@@ -1,18 +1,26 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
+
+    SQLiteDatabase db;
+    DataBaseHelper mDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        DataBaseHelper mDbHelper = new DataBaseHelper(getApplicationContext());
-
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        mDbHelper = new DataBaseHelper(getApplicationContext());
+        db = mDbHelper.getWritableDatabase();
     }
 
     @Override
@@ -61,5 +67,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
 
+    public void setNotif()
+    {
+        //mis ici pour pas perdre le code, a bouger apres peut etre
+        NotificationCompat.Builder builderNotif = new NotificationCompat.Builder(this);
+        builderNotif.setSmallIcon(R.mipmap.ic_launcher);
+        builderNotif.setContentTitle("Ceci est un titre de notif");
+        builderNotif.setContentText("Ceci est le texte de la notif");
 
+        NotificationManager mNotificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(10, builderNotif.build());
+    }
 }
