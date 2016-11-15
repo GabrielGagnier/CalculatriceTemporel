@@ -19,6 +19,12 @@ import android.widget.TextView;
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
+    private int idText;
+
+    public void setIdText(int idText) {
+        this.idText = idText;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
@@ -37,7 +43,7 @@ public class DatePickerFragment extends DialogFragment
         Calendar c = Calendar.getInstance();
         c.set(year,month,day);
         String date = format.format(c.getTime());
-        EditText editTextDatePicker = (EditText) getActivity().findViewById(R.id.editTextDatePicker);
+        EditText editTextDatePicker = (EditText) getActivity().findViewById(idText);
         editTextDatePicker.setText(date);
     }
 }

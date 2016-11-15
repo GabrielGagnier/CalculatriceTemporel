@@ -19,7 +19,8 @@ public class SaveEventActivity extends AppCompatActivity {
     }
 
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.setIdText(R.id.editTextDatePicker);
         newFragment.show(getFragmentManager(),"datePicker");
     }
 
