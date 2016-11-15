@@ -39,16 +39,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="48dp"
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextDatePicker"
         android:text="dd/MM/yyyy" />
 
-    <TextView
+    <Button
         android:text="Date :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewDate"
-        android:layout_alignBaseline="@+id/editTextDate"
-        android:layout_alignBottom="@+id/editTextDate"
+        android:id="@+id/buttonTimePicker"
+        android:onClick="showDatePickerDialog"
+        android:layout_alignBaseline="@+id/editTextDatePicker"
+        android:layout_alignBottom="@+id/editTextDatePicker"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -57,17 +58,17 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editTextDate"
-        android:layout_alignLeft="@+id/editTextDate"
-        android:layout_alignStart="@+id/editTextDate"
+        android:layout_below="@+id/editTextDatePicker"
+        android:layout_alignLeft="@+id/editTextDatePicker"
+        android:layout_alignStart="@+id/editTextDatePicker"
         android:layout_marginTop="64dp"
-        android:id="@+id/editText5" />
+        android:id="@+id/editTextCommentaire" />
 
     <TextView
         android:text="Commentaire :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText5"
+        android:layout_alignBottom="@+id/editTextCommentaire"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp"
@@ -90,6 +91,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/buttonSave" />
+        android:id="@+id/buttonSave"
+        android:onClick="save"/>
 
 </RelativeLayout>
