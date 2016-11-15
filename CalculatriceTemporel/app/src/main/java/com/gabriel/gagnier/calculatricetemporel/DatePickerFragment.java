@@ -9,7 +9,6 @@ import java.util.Calendar;
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 /**

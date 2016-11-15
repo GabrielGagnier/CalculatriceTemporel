@@ -1,5 +1,7 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -39,11 +41,45 @@ public class DateUtils {
         cal1.setTime(format.parse(date1));
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(format.parse(date2));
+
+
+        int diffMonths = 0;
+        int diffYears = 0;
+
+        long timeCal1 = cal1.getTimeInMillis();
+        long timeCal2 = cal2.getTimeInMillis();
+        long difference = 0;
+
+        if(timeCal1 < timeCal2){
+            difference = timeCal2 - timeCal1;
+            diffMonths = cal2.get(Calendar.MONTH) - cal1.get(Calendar.MONTH);
+            diffYears = cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR);
+        }
+        else{
+            difference = timeCal1 - timeCal2;
+            diffMonths = cal1.get(Calendar.MONTH) - cal2.get(Calendar.MONTH);
+            diffYears = cal1.get(Calendar.YEAR) - cal2.get(Calendar.YEAR);
+        }
+
+        difference /= 86400000;
+
+        switch(time){
+            case Calendar.DATE: //JOURS
+                return (int)difference;
+            case Calendar.MONTH:
+                return diffMonths + 12 * diffYears;
+            case Calendar.YEAR:
+                return diffYears;
+        }
+
+        return -1;
+
+    /*
         int i1 = cal1.get(time);
         int i2 = cal2.get(time);
         if(i1<i2)
             return i2-i1;
-        return i1-i2;
+        return i1-i2;*/
     }
 
     /**
