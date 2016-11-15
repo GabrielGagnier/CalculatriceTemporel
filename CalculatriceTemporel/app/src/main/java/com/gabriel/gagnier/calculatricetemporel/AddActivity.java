@@ -70,10 +70,8 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void select(View V){
-        final Intent it = new Intent();
-        it.setAction("com.gabriel.gagnier.calculatricetemporel.SELECT");
-        it.putExtra("caller", "com.gabriel.gagnier.calculatricetemporel.ADD");
-        it.putExtra("editable",R.id.editTextDatePicker);
-        startActivity(it);
+        SelectEventFragment newFragment = new SelectEventFragment();
+        newFragment.setIdText(R.id.editTextDatePicker);
+        newFragment.show(getFragmentManager(),"datePicker");
     }
 }

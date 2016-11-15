@@ -112,7 +112,8 @@
         android:layout_alignTop="@+id/editTextDate1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/buttonEvent1" />
+        android:id="@+id/buttonEvent1"
+        android:onClick="select1"/>
 
     <Button
         android:text="Event"
@@ -121,6 +122,7 @@
         android:layout_alignTop="@+id/editTextDate2"
         android:layout_alignLeft="@+id/buttonEvent1"
         android:layout_alignStart="@+id/buttonEvent1"
-        android:id="@+id/buttonEvent2" />
+        android:id="@+id/buttonEvent2"
+        android:onClick="select2"/>
 
 </RelativeLayout>

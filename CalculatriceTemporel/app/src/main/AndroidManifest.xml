@@ -41,13 +41,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectEventActivity">
-            <intent-filter>
-                <action android:name="com.gabriel.gagnier.calculatricetemporel.SELECT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
