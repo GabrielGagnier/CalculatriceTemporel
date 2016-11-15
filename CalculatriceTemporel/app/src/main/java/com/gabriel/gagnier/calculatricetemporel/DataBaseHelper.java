@@ -13,7 +13,7 @@ import android.util.Log;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
 
-    private static final String DB_NAME = "Calculatrice_Temporelle.db";
+    public  static final String DB_NAME = "Calculatrice_Temporelle.db";
     private static final String DB_PATH = "/data/data/com.gabriel.gagnier.calculatricetemporel/databases/";  //Le chemin menant a la bdd
 
     public DataBaseHelper(Context context) {
@@ -24,6 +24,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_EVENEMENTS = "evenements";
     private static final String COLUMN_ID = "_id";
+
+    public static String getTableEvenements() {
+        return TABLE_EVENEMENTS;
+    }
+
     private static final String LIBELLE = "libelle";
     private static final String DATE = "date";
     private static final String COMMENTAIRE = "commentaire";

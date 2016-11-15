@@ -1,6 +1,8 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
 import android.app.DialogFragment;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +36,16 @@ public class SaveEventActivity extends AppCompatActivity {
             notification = 1;
         else
             notification = 0;
-        //TODO cree l'entity et la persist
 
+        DataBaseHelper DBHelper = new DataBaseHelper(getApplicationContext());
+        SQLiteDatabase db = DBHelper.getWritableDatabase();
+
+        ContentValues cv = new ContentValues(4);
+        cv.put("libelle",libelle);
+        cv.put("date",date);
+        cv.put("commentaire",commentaire);
+        cv.put("notification",notification);
+
+        db.insert(DBHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
     }
 }
