@@ -105,4 +105,22 @@
         android:layout_alignStart="@+id/buttonCalcul"
         android:id="@+id/textViewDelta" />
 
+    <Button
+        android:text="Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDate1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonEvent1" />
+
+    <Button
+        android:text="Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDate2"
+        android:layout_alignLeft="@+id/buttonEvent1"
+        android:layout_alignStart="@+id/buttonEvent1"
+        android:id="@+id/buttonEvent2" />
+
 </RelativeLayout>

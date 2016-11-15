@@ -25,9 +25,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_EVENEMENTS = "evenements";
     private static final String COLUMN_ID = "_id";
 
-    public static String getTableEvenements() {
-        return TABLE_EVENEMENTS;
-    }
 
     private static final String LIBELLE = "libelle";
     private static final String DATE = "date";
@@ -97,7 +94,51 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return checkDB != null ? true : false;
     }
 
-    public SQLiteDatabase getMyDataBase() {
+    public SQLiteDatabase getMyDataBase(){
         return myDataBase;
+    }
+
+    public static String getDbName() {
+        return DB_NAME;
+    }
+
+    public static String getDbPath() {
+        return DB_PATH;
+    }
+
+    public void setMyDataBase(SQLiteDatabase myDataBase) {
+        this.myDataBase = myDataBase;
+    }
+
+    public static String getTableEvenements() {
+        return TABLE_EVENEMENTS;
+    }
+
+    public static String getColumnId() {
+        return COLUMN_ID;
+    }
+
+    public static String getLIBELLE() {
+        return LIBELLE;
+    }
+
+    public static String getDATE() {
+        return DATE;
+    }
+
+    public static String getCOMMENTAIRE() {
+        return COMMENTAIRE;
+    }
+
+    public static String getNOTIFICATION() {
+        return NOTIFICATION;
+    }
+
+    public static int getDatabaseVersion() {
+        return DATABASE_VERSION;
+    }
+
+    public static String getDatabaseCreate() {
+        return DATABASE_CREATE;
     }
 }

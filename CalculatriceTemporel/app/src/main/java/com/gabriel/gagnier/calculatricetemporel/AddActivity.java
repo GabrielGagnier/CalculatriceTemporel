@@ -16,6 +16,10 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_add);
+        if(this.getIntent().getIntExtra("editable",0)!=0){
+            EditText editDate = (EditText) findViewById(this.getIntent().getIntExtra("editable",0));
+            editDate.setText(this.getIntent().getStringExtra("value"));
+        }
 
         Spinner spinner = (Spinner) findViewById(R.id.spinnerTime);
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -63,6 +67,14 @@ public class AddActivity extends AppCompatActivity {
         final Intent it = new Intent();
         it.setAction("com.gabriel.gagnier.calculatricetemporel.SAVE");
         it.putExtra("date",((TextView) findViewById(R.id.textViewResultatDate)).getText().toString());
+        startActivity(it);
+    }
+
+    public void select(View V){
+        final Intent it = new Intent();
+        it.setAction("com.gabriel.gagnier.calculatricetemporel.SELECT");
+        it.putExtra("caller", "com.gabriel.gagnier.calculatricetemporel.ADD");
+        it.putExtra("editable",R.id.editTextDatePicker);
         startActivity(it);
     }
 }

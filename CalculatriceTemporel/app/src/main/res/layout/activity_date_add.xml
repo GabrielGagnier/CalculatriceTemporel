@@ -14,7 +14,6 @@
         android:text="dd/MM/yyyy"
         android:layout_alignBottom="@+id/buttonTimePicker"
         android:layout_toRightOf="@+id/buttonTimePicker"
-        android:layout_toEndOf="@+id/buttonTimePicker"
         android:layout_marginLeft="27dp"
         android:layout_marginStart="27dp" />
 
@@ -123,5 +122,15 @@
         android:layout_marginBottom="41dp"
         android:id="@+id/buttonEvent"
         android:onClick="saveEvent"/>
+
+    <Button
+        android:text="Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonSelectEvent"
+        android:onClick="select"/>
 
 </RelativeLayout>
