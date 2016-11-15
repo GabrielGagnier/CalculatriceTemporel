@@ -33,7 +33,8 @@
         android:layout_alignLeft="@+id/buttonAdd"
         android:layout_alignStart="@+id/buttonAdd"
         android:layout_marginTop="48dp"
-        android:id="@+id/buttonDelta"/>
+        android:id="@+id/buttonDelta"
+        android:onClick="launchDelta"/>
 
     <Button
         android:text="Notif"

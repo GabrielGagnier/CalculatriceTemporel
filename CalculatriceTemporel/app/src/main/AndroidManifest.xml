@@ -16,11 +16,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DateAddActivity">
+        <activity android:name=".AddActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.ADD" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -29,6 +28,13 @@
         <activity android:name=".SaveEventActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.SAVE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DeltaActivity">
+            <intent-filter>
+                <action android:name="com.gabriel.gagnier.calculatricetemporel.DELTA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

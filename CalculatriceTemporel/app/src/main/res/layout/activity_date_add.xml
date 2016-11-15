@@ -97,7 +97,8 @@
         android:layout_alignStart="@+id/editTextAdd"
         android:layout_marginLeft="69dp"
         android:layout_marginStart="69dp"
-        android:id="@+id/textViewResultatDate" />
+        android:id="@+id/textViewResultatDate"
+        android:text="resultat de l'ajout" />
 
     <Button
         android:text="Calcul"
