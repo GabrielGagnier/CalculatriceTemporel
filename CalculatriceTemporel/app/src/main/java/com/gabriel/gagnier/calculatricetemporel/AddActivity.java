@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class AddActivity extends AppCompatActivity {
-
+    private boolean gotResult = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +45,21 @@ public class AddActivity extends AppCompatActivity {
             switch(time){
                 case "Jours" :
                     textViewResultatDate.setText(DateUtils.addDays(date,add));
+                    this.gotResult = true;
                     break;
                 case "Mois" :
                     textViewResultatDate.setText(DateUtils.addMonth(date,add));
+                    this.gotResult = true;
                     break;
                 case "Années" :
                     textViewResultatDate.setText(DateUtils.addYears(date,add));
+                    this.gotResult = true;
                     break;
                 default:
                     textViewResultatDate.setText("Données mal renseigné!");
                     break;
             }
+
         }catch(Exception e){
             TextView textViewResultatDate = (TextView) findViewById(R.id.textViewResultatDate);
             textViewResultatDate.setText("Données mal renseigné!");
@@ -65,7 +69,10 @@ public class AddActivity extends AppCompatActivity {
     public void saveEvent(View V){
         final Intent it = new Intent();
         it.setAction("com.gabriel.gagnier.calculatricetemporel.SAVE");
-        it.putExtra("date",((TextView) findViewById(R.id.textViewResultatDate)).getText().toString());
+        if(this.gotResult)
+            it.putExtra("date",((TextView) findViewById(R.id.textViewResultatDate)).getText().toString());
+        else
+            it.putExtra("date","");
         startActivity(it);
     }
 

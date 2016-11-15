@@ -44,6 +44,7 @@
 
     <Button
         android:text="Date :"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonTimePicker"
@@ -86,6 +87,7 @@
 
     <Button
         android:text="Save"
+        android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
