@@ -32,7 +32,7 @@ public class AddActivity extends AppCompatActivity {
 
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.setIdText(R.id.editTextDatePicker);
+        newFragment.setEditText((EditText) findViewById(R.id.editTextDatePicker));
         newFragment.show(getFragmentManager(),"datePicker");
     }
 
@@ -67,13 +67,10 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void saveEvent(View V){
-        final Intent it = new Intent();
-        it.setAction("com.gabriel.gagnier.calculatricetemporel.SAVE");
+        SaveEventFragment newFragment = new SaveEventFragment();
         if(this.gotResult)
-            it.putExtra("date",((TextView) findViewById(R.id.textViewResultatDate)).getText().toString());
-        else
-            it.putExtra("date","");
-        startActivity(it);
+            newFragment.setSavedDate(((TextView) this.findViewById(R.id.textViewResultatDate)).getText().toString());
+        newFragment.show(getFragmentManager(),"saveEvent");
     }
 
     public void select(View V){

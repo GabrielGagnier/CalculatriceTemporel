@@ -18,11 +18,7 @@ import android.widget.EditText;
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
-    private int idText;
-
-    public void setIdText(int idText) {
-        this.idText = idText;
-    }
+    private EditText editText;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -42,7 +38,10 @@ public class DatePickerFragment extends DialogFragment
         Calendar c = Calendar.getInstance();
         c.set(year,month,day);
         String date = format.format(c.getTime());
-        EditText editTextDatePicker = (EditText) getActivity().findViewById(idText);
-        editTextDatePicker.setText(date);
+        editText.setText(date);
+    }
+
+    public void setEditText(EditText editText) {
+        this.editText = editText;
     }
 }

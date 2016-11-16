@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase db;
     DataBaseHelper mDbHelper;
 
+    //TODO ergonomie en mode calculatrice
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

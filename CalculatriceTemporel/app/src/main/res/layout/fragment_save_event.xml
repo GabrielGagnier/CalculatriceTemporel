@@ -8,27 +8,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.gabriel.gagnier.calculatricetemporel.SaveEventActivity">
+    tools:context="com.gabriel.gagnier.calculatricetemporel.SaveEventFragment">
 
     <TextView
         android:text="Libelle :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/TextViewLibelle"
         android:layout_alignBaseline="@+id/editTextLibelle"
         android:layout_alignBottom="@+id/editTextLibelle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/TextViewLibelle"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextLibelle"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editTextLibelle" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,44 +36,16 @@
         android:inputType="date"
         android:ems="10"
         android:layout_below="@+id/editTextLibelle"
+        android:layout_alignRight="@+id/buttonTimePickerSave"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="48dp"
-        android:id="@+id/editTextDatePicker"
-        android:text="dd/MM/yyyy" />
+        android:id="@+id/editTextDatePickerSave"
+        android:text="dd/MM/yyyy"
+        android:layout_alignLeft="@+id/editTextLibelle"
+        android:layout_alignStart="@+id/editTextLibelle" />
 
-    <Button
-        android:text="Date :"
-        android:background="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonTimePicker"
-        android:onClick="showDatePickerDialog"
-        android:layout_alignBaseline="@+id/editTextDatePicker"
-        android:layout_alignBottom="@+id/editTextDatePicker"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editTextDatePicker"
-        android:layout_alignLeft="@+id/editTextDatePicker"
-        android:layout_alignStart="@+id/editTextDatePicker"
-        android:layout_marginTop="64dp"
-        android:id="@+id/editTextCommentaire" />
-
-    <TextView
-        android:text="Commentaire :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editTextCommentaire"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/textViewCommentaire" />
+    <!--android:onClick="showDatePickerDialog"-->
 
     <CheckBox
         android:text="Notification"
@@ -88,12 +60,44 @@
     <Button
         android:text="Save"
         android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/buttonSave"
-        android:onClick="save"/>
+        android:id="@+id/buttonSave" />
+
+    <Button
+        android:text="Date :"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/editTextDatePickerSave"
+        android:layout_alignTop="@+id/editTextDatePickerSave"
+        android:id="@+id/buttonTimePickerSave"/>
+
+    <TextView
+        android:text="Commentaire :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_below="@+id/buttonTimePickerSave"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewCommentaire"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignBaseline="@+id/textViewCommentaire"
+        android:layout_alignBottom="@+id/textViewCommentaire"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editTextCommentaire"/>
 
 </RelativeLayout>

@@ -37,13 +37,13 @@ public class DeltaActivity extends AppCompatActivity{
 
     public void showDatePickerDialog1(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.setIdText(R.id.editTextDate1);
+        newFragment.setEditText((EditText) findViewById(R.id.editTextDate1));
         newFragment.show(getFragmentManager(),"datePicker");
     }
 
     public void showDatePickerDialog2(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.setIdText(R.id.editTextDate2);
+        newFragment.setEditText((EditText) findViewById(R.id.editTextDate1));
         newFragment.show(getFragmentManager(),"datePicker");
     }
 
