@@ -5,19 +5,24 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
+
+import javax.xml.parsers.FactoryConfigurationError;
 
 /**
  * Created by thibault on 16/11/2016.
  */
 
-public class UpdateSaveEventFragment extends SaveEventFragment {
+public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
     private int id;
     private int notification;
@@ -25,24 +30,27 @@ public class UpdateSaveEventFragment extends SaveEventFragment {
     private String libele;
     private String commentaire;
 
-    //private GridLayout linearLayoutButton;
+    private Button buttonDelete;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_save_event, container, false);
+        View v =  super.onCreateView(inflater,container,savedInstanceState);
 
-        //this.linearLayoutButton = (LinearLayout) v.findViewById(R.id.linearLayoutButton);
+        GridLayout grid = (GridLayout) v.findViewById(R.id.gridLayoutFragmentEvent);
+        this.buttonDelete = new Button(v.getContext());
 
-        Button boutonDelete = new Button(v.getContext());
-        boutonDelete.setText("Delete");
-        boutonDelete.setTextColor(Color.WHITE);
-        boutonDelete.setBackgroundColor(0xFF3F51B5);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        buttonDelete.setText("Delete");
+        buttonDelete.setTextColor(getResources().getColor(R.color.white));
+        buttonDelete.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        buttonDelete.setLayoutParams(params);
+        buttonDelete.setGravity(Gravity.START);
 
-        //linearLayoutButton.addView(boutonDelete, lp);
-
-        boutonDelete.setOnClickListener(new View.OnClickListener() {
+        grid.addView(buttonDelete, new GridLayout.LayoutParams(
+                        GridLayout.spec(5,GridLayout.START),
+                        GridLayout.spec(0,GridLayout.START)));
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SQLiteDatabase db = mHelper.getWritableDatabase();
@@ -55,20 +63,15 @@ public class UpdateSaveEventFragment extends SaveEventFragment {
             }
         });
 
-        this.editTextLibelle = (EditText) v.findViewById(R.id.editTextLibelle);
         this.editTextLibelle.setText(libele);
-        this.editTextDatePickerSave = (EditText) v.findViewById(R.id.editTextDatePickerSave);
         this.editTextDatePickerSave.setText(date);
-        this.editTextCommentaire = (EditText) v.findViewById(R.id.editTextCommentaire);
         this.editTextCommentaire.setText(commentaire);
-        this.checkBoxNotification = (CheckBox) v.findViewById(R.id.checkBoxNotification);
 
         if(0 == notification)
             this.checkBoxNotification.toggle();
 
-        this.buttonSave = (Button) v.findViewById(R.id.buttonSave);
-        this.buttonSave.setText("Update");
-        this.buttonSave.setOnClickListener(new View.OnClickListener() {
+        this.buttonEventFragment.setText("Update");
+        this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 libele = editTextLibelle.getText().toString();
@@ -96,14 +99,6 @@ public class UpdateSaveEventFragment extends SaveEventFragment {
                 db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
 
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
-            }
-        });
-        this.buttonTimePickerSave = (Button) v.findViewById(R.id.buttonTimePickerSave);
-        this.buttonTimePickerSave.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                DatePickerFragment newFragment = new DatePickerFragment();
-                newFragment.setEditText(editTextDatePickerSave);
-                newFragment.show(getFragmentManager(),"datePicker");
             }
         });
         return v;

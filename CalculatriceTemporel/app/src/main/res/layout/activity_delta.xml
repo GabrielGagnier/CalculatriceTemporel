@@ -115,20 +115,20 @@
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editTextDate2"
-        android:layout_alignLeft="@+id/buttonEvent1"
-        android:layout_alignStart="@+id/buttonEvent1"
-        android:id="@+id/buttonEvent2"
-        android:onClick="select2"/>
+        android:id="@+id/buttonEvent1"
+        android:onClick="select1"
+        android:layout_alignBottom="@+id/editTextDate1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:src="@drawable/ic_select_event"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonEvent1"
-        android:onClick="select1"
-        android:layout_alignBottom="@+id/editTextDate1"
+        android:id="@+id/buttonEvent2"
+        android:onClick="select2"
+        android:layout_alignBottom="@+id/editTextDate2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 

@@ -2,7 +2,6 @@ package com.gabriel.gagnier.calculatricetemporel;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 
 /**
  * Created by thibault on 16/11/2016.
@@ -15,7 +14,7 @@ public class UpdateSelectEventFragment extends SelectEventFragment {
 
         mCursor.moveToPosition(i);
 
-        UpdateSaveEventFragment newFragment = new UpdateSaveEventFragment();
+        UpdateDeleteEventFragment newFragment = new UpdateDeleteEventFragment();
 
         newFragment.setId(mCursor.getInt(mCursor.getColumnIndex(DataBaseHelper.getColumnId())));
         newFragment.setNotification(mCursor.getInt(mCursor.getColumnIndex(DataBaseHelper.getNOTIFICATION())));
