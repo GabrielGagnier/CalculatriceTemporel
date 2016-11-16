@@ -15,13 +15,13 @@ import android.widget.SimpleCursorAdapter;
 
 public class SelectEventFragment extends DialogFragment implements AdapterView.OnItemClickListener{
 
-    private ListView mList;
+    protected ListView mList;
 
-    private int idText;
-    private DataBaseHelper mHelper;
-    private SQLiteDatabase maDB;
-    private Cursor mCursor;
-    private SimpleCursorAdapter mAdapter;
+    protected int idText;
+    protected DataBaseHelper mHelper;
+    protected SQLiteDatabase maDB;
+    protected Cursor mCursor;
+    protected SimpleCursorAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

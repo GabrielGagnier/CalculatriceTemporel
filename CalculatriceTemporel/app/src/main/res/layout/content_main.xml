@@ -51,5 +51,5 @@
         android:layout_below="@+id/buttonDelta"
         android:layout_alignLeft="@+id/buttonDelta"
         android:layout_alignStart="@+id/buttonDelta"
-        android:onClick="TEST"/>
+        android:onClick="launchEvents"/>
 </RelativeLayout>

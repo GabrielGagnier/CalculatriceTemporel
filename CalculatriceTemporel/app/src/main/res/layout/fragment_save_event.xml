@@ -55,7 +55,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="62dp"
-        android:id="@+id/checkBoxNotification" />
+        android:id="@+id/checkBoxNotification"
+        android:checked="true" />
 
     <Button
         android:text="Save"
@@ -99,5 +100,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/editTextCommentaire"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/buttonSave"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayoutButton"></LinearLayout>
 
 </RelativeLayout>

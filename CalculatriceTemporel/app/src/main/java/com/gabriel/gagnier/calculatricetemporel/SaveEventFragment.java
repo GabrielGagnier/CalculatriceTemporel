@@ -12,22 +12,23 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SaveEventFragment extends DialogFragment{
 
-    private DataBaseHelper mHelper;
-    private String savedDate;
-    private SaveEventFragment currentFragment;
+    protected DataBaseHelper mHelper;
+    protected String savedDate;
+    protected SaveEventFragment currentFragment;
 
-    private EditText editTextLibelle;
-    private EditText editTextDatePickerSave;
-    private EditText editTextCommentaire;
-    private CheckBox checkBoxNotification;
-    private Button buttonTimePickerSave;
-    private Button buttonSave;
+    protected EditText editTextLibelle;
+    protected EditText editTextDatePickerSave;
+    protected EditText editTextCommentaire;
+    protected CheckBox checkBoxNotification;
+    protected Button buttonTimePickerSave;
+    protected Button buttonSave;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class SaveEventFragment extends DialogFragment{
         editTextDatePickerSave.setText(savedDate);
         this.editTextCommentaire = (EditText) v.findViewById(R.id.editTextCommentaire);
         this.checkBoxNotification = (CheckBox) v.findViewById(R.id.checkBoxNotification);
+        this.checkBoxNotification.toggle();
         this.buttonSave = (Button) v.findViewById(R.id.buttonSave);
         this.buttonSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

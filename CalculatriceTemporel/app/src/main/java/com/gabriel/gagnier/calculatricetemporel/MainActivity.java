@@ -1,14 +1,9 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -65,25 +60,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void TEST(View V)
+    public void launchEvents(View V)
     {
-        //mis ici pour pas perdre le code, à bouger apres peut etre
-        NotificationCompat.Builder builderNotif = new NotificationCompat.Builder(this);
-        builderNotif.setSmallIcon(R.mipmap.ic_launcher);
-        builderNotif.setContentTitle("Ceci est un titre de notif");
-        builderNotif.setContentText("Ceci est le texte de la notif");
-
-        NotificationManager mNotificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-
-        Intent resultIntent = new Intent(this, MainActivity.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
-
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        builderNotif.setContentIntent(resultPendingIntent);
-
-
-        mNotificationManager.notify(10, builderNotif.build());
+        SelectEventFragment newFragment = new UpdateSelectEventFragment();
+        newFragment.show(getFragmentManager(),"updateDatePicker");
     }
 }
