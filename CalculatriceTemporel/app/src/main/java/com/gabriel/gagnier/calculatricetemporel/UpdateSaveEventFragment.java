@@ -25,14 +25,14 @@ public class UpdateSaveEventFragment extends SaveEventFragment {
     private String libele;
     private String commentaire;
 
-    private LinearLayout linearLayoutButton;
+    //private GridLayout linearLayoutButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_save_event, container, false);
 
-        this.linearLayoutButton = (LinearLayout) v.findViewById(R.id.linearLayoutButton);
+        //this.linearLayoutButton = (LinearLayout) v.findViewById(R.id.linearLayoutButton);
 
         Button boutonDelete = new Button(v.getContext());
         boutonDelete.setText("Delete");
@@ -40,7 +40,7 @@ public class UpdateSaveEventFragment extends SaveEventFragment {
         boutonDelete.setBackgroundColor(0xFF3F51B5);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-        linearLayoutButton.addView(boutonDelete, lp);
+        //linearLayoutButton.addView(boutonDelete, lp);
 
         boutonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
