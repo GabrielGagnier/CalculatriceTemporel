@@ -1,21 +1,10 @@
 package com.gabriel.gagnier.calculatricetemporel;
 
-import android.app.DialogFragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.app.Fragment;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CursorAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -74,13 +63,13 @@ public class DeltaActivity extends AppCompatActivity{
     }
 
     public void select1(View v){
-        SelectEventFragment newFragment = new SelectEventFragment();
+        ListEventsFragment newFragment = new ListEventsFragment();
         newFragment.setIdText(R.id.editTextDate1);
         newFragment.show(getFragmentManager(),"datePicker");
     }
 
     public void select2(View v){
-        SelectEventFragment newFragment = new SelectEventFragment();
+        ListEventsFragment newFragment = new ListEventsFragment();
         newFragment.setIdText(R.id.editTextDate2);
         newFragment.show(getFragmentManager(),"datePicker");
     }

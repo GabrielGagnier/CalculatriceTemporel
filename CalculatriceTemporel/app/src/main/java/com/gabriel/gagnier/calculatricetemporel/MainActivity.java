@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchEvents(View V)
     {
-        SelectEventFragment newFragment = new UpdateSelectEventFragment();
-        newFragment.show(getFragmentManager(),"updateDatePicker");
+        CRUDListEventsFragment newFragment = new CRUDListEventsFragment();
+        newFragment.show(getFragmentManager(),"CRUDListEvent");
     }
 }

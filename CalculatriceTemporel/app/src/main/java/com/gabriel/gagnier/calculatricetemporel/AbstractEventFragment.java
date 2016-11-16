@@ -36,11 +36,9 @@ public abstract class AbstractEventFragment extends DialogFragment {
 
     /**
      * dans les classes fille au minimum set le onClick de buttonEventFragment
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
      */
+    protected abstract void initComponent(View view);
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +58,7 @@ public abstract class AbstractEventFragment extends DialogFragment {
                 newFragment.show(getFragmentManager(),"datePicker");
             }
         });
+        this.initComponent(v);
         return v;
     }
 }

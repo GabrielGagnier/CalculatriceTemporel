@@ -33,12 +33,9 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
     private Button buttonDelete;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v =  super.onCreateView(inflater,container,savedInstanceState);
-
-        GridLayout grid = (GridLayout) v.findViewById(R.id.gridLayoutFragmentEvent);
-        this.buttonDelete = new Button(v.getContext());
+    protected void initComponent(View view) {
+        GridLayout grid = (GridLayout) view.findViewById(R.id.gridLayoutEventFragment);
+        this.buttonDelete = new Button(view.getContext());
 
         buttonDelete.setText("Delete");
         buttonDelete.setTextColor(getResources().getColor(R.color.white));
@@ -48,8 +45,8 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         buttonDelete.setGravity(Gravity.START);
 
         grid.addView(buttonDelete, new GridLayout.LayoutParams(
-                        GridLayout.spec(5,GridLayout.START),
-                        GridLayout.spec(0,GridLayout.START)));
+                GridLayout.spec(5,GridLayout.START),
+                GridLayout.spec(0,GridLayout.START)));
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +98,6 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
             }
         });
-        return v;
     }
 
     public void setId(int id) {

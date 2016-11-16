@@ -19,20 +19,11 @@ import android.widget.Toast;
 
 public class SaveEventFragment extends AbstractEventFragment{
 
-    private String savedDate;
+    protected String savedDate;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //obtention du helper
-        mHelper = new DataBaseHelper(this.getActivity());
-        this.currentFragment = this;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v =  super.onCreateView(inflater,container,savedInstanceState);
+    protected void initComponent(View view) {
+        this.editTextDatePickerSave.setText(savedDate);
         this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String libelle = editTextLibelle.getText().toString();
@@ -56,7 +47,6 @@ public class SaveEventFragment extends AbstractEventFragment{
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
             }
         });
-        return v;
     }
 
     public void setSavedDate(String savedDate) {

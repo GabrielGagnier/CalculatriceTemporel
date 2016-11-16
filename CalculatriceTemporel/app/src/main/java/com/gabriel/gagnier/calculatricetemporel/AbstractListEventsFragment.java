@@ -13,11 +13,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class SelectEventFragment extends DialogFragment implements AdapterView.OnItemClickListener{
+/**
+ * Created by gagnier on 16/11/16.
+ */
+
+public abstract class AbstractListEventsFragment extends DialogFragment implements AdapterView.OnItemClickListener{
+
 
     protected ListView mList;
 
-    protected int idText;
     protected DataBaseHelper mHelper;
     protected SQLiteDatabase maDB;
     protected Cursor mCursor;
@@ -30,22 +34,31 @@ public class SelectEventFragment extends DialogFragment implements AdapterView.O
         mHelper = new DataBaseHelper(this.getActivity());
     }
 
+    /**
+     * initialise d'eventuel nouveaux composant a la vue
+     * @param view
+     */
+    protected abstract void initComponent(View view);
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_select_event, container, false);
+        View v =  inflater.inflate(R.layout.fragment_list_events, container, false);
         mList = (ListView) v.findViewById(R.id.listEvents);
         mList.setOnItemClickListener(this);
-
+        this.initComponent(v);
         return v;
     }
+
+    /**
+     * fait l'action sur le click d'un evenement avant de fermer le fragment
+     */
+    protected abstract void onItemClickAction();
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         mCursor.moveToPosition(i);
-        String rowDate = mCursor.getString(mCursor.getColumnIndex(DataBaseHelper.getDATE()));
-        EditText editTextDate1 = (EditText) this.getActivity().findViewById(idText);
-        editTextDate1.setText(rowDate);
+        this.onItemClickAction();
         this.getActivity().getFragmentManager().beginTransaction().remove(this).commit();
     }
 
@@ -75,9 +88,5 @@ public class SelectEventFragment extends DialogFragment implements AdapterView.O
         //Close all connections
         maDB.close();
         mCursor.close();
-    }
-
-    public void setIdText(int idText) {
-        this.idText = idText;
     }
 }
