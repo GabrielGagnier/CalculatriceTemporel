@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.gabriel.gagnier.calculatricetemporel.R;
+import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     SQLiteDatabase db;

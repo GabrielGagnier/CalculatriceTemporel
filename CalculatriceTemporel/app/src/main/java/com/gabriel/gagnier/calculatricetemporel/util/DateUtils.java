@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel;
+package com.gabriel.gagnier.calculatricetemporel.util;
 
 import android.widget.Toast;
 

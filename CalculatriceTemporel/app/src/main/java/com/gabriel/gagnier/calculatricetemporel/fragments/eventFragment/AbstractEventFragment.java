@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel;
+package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
+import com.gabriel.gagnier.calculatricetemporel.R;
 
 /**
  * Created by gagnier on 16/11/16.

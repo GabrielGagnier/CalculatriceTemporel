@@ -1,17 +1,9 @@
-package com.gabriel.gagnier.calculatricetemporel;
+package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 
-import android.app.DialogFragment;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.CursorAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+
+import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
 
 public class ListEventsFragment extends AbstractListEventsFragment{
 

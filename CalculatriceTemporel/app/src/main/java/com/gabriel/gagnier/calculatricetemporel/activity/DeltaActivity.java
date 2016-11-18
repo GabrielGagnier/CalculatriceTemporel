@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel;
+package com.gabriel.gagnier.calculatricetemporel.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.gabriel.gagnier.calculatricetemporel.R;
+import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
+import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.ListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 
 public class DeltaActivity extends AppCompatActivity{
 

@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddActivity">
+        <activity android:name=".activity.AddActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.ADD" />
 
@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>-->
-        <activity android:name=".DeltaActivity">
+        <activity android:name=".activity.DeltaActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.DELTA" />
 
