@@ -46,7 +46,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/editTextDate1"
-        android:text="dd/MM/yyyy" />
+        android:text="" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/editTextDate2"
-        android:text="dd/MM/yyyy" />
+        android:text="" />
 
     <TextView
         android:text="Time :"
@@ -76,42 +76,8 @@
         android:layout_alignLeft="@+id/editTextDate2"
         android:layout_alignStart="@+id/editTextDate2" />
 
-    <TextView
-        android:text="Resultat du delta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:id="@+id/textViewDateRes"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonCalcul"
-        android:layout_toEndOf="@+id/buttonCalcul"
-        android:layout_marginBottom="31dp" />
-
-    <Button
-        android:text=" Calcul du delta "
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonCalcul"
-        android:onClick="calcul"
-        android:layout_below="@+id/spinnerTime"
-        android:layout_alignLeft="@+id/textViewTime"
-        android:layout_alignStart="@+id/textViewTime"
-        android:layout_marginTop="55dp" />
-
-    <TextView
-        android:text="Delta :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewDateRes"
-        android:layout_alignLeft="@+id/buttonCalcul"
-        android:layout_alignStart="@+id/buttonCalcul"
-        android:id="@+id/textViewDelta" />
-
     <ImageButton
-        android:src="@drawable/ic_select_event"
+        android:src="@drawable/ic_assignment_return_black_36dp"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -122,7 +88,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageButton
-        android:src="@drawable/ic_select_event"
+        android:src="@drawable/ic_assignment_return_black_36dp"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,5 +97,25 @@
         android:layout_alignBottom="@+id/editTextDate2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDateRes"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/buttonCalcul"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:src="@drawable/ic_iso_black_48dp"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCalcul"
+        android:onClick="calcul"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/spinnerTime"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

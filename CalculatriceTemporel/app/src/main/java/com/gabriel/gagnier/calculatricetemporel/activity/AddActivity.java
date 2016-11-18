@@ -2,7 +2,6 @@ package com.gabriel.gagnier.calculatricetemporel.activity;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,15 +16,16 @@ import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.SaveEven
 import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.ListEventsFragment;
 import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 
-import org.w3c.dom.Text;
-
 public class AddActivity extends AppCompatActivity {
     private boolean gotResult = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_add);
+        setContentView(R.layout.activity_add);
+
+        EditText editTextDatePicker = (EditText) findViewById(R.id.editTextDatePicker);
+        editTextDatePicker.setText(DateUtils.now());
 
         Spinner spinner = (Spinner) findViewById(R.id.spinnerTime);
 // Create an ArrayAdapter using the string array and a default spinner layout

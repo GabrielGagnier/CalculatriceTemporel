@@ -11,6 +11,7 @@ import java.util.Calendar;
 
 public class DateUtils {
 
+
     /**
      *
      * @param time definit l'operation d'addition (sur les jours, mois, annees [...])
@@ -73,13 +74,6 @@ public class DateUtils {
         }
 
         return -1;
-
-    /*
-        int i1 = cal1.get(time);
-        int i2 = cal2.get(time);
-        if(i1<i2)
-            return i2-i1;
-        return i1-i2;*/
     }
 
     /**
@@ -146,5 +140,16 @@ public class DateUtils {
      */
     public static int deltaYear(String date1, String date2)throws Exception{
         return delta(Calendar.YEAR, date1, date2);
+    }
+
+    /**
+     * revois la date du jour formater
+     * @return
+     * @throws Exception
+     */
+    public static String now(){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        return format.format(c.getTime());
     }
 }

@@ -11,7 +11,7 @@
         android:ems="10"
         android:id="@+id/editTextDatePicker"
         android:layout_weight="0.22"
-        android:text="dd/MM/yyyy"
+        android:text=""
         android:layout_alignBottom="@+id/buttonTimePicker"
         android:layout_toRightOf="@+id/buttonTimePicker"
         android:layout_marginLeft="27dp"
