@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
 import com.gabriel.gagnier.calculatricetemporel.R;
+import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 
 /**
  * Created by gagnier on 16/11/16.
@@ -49,7 +50,7 @@ public abstract class AbstractEventFragment extends DialogFragment {
         View v =  inflater.inflate(R.layout.fragment_event, container, false);
         this.editTextLibelle = (EditText) v.findViewById(R.id.editTextLibelle);
         this.editTextDatePickerSave = (EditText) v.findViewById(R.id.editTextDatePickerSave);
-       // editTextDatePickerSave.setText(savedDate);
+        editTextDatePickerSave.setText(DateUtils.now());
         this.editTextCommentaire = (EditText) v.findViewById(R.id.editTextCommentaire);
         this.checkBoxNotification = (CheckBox) v.findViewById(R.id.checkBoxNotification);
         this.checkBoxNotification.toggle();

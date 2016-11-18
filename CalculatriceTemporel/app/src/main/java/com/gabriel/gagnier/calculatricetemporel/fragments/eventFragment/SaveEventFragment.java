@@ -4,9 +4,11 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 
+import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
+
 public class SaveEventFragment extends AbstractEventFragment{
 
-    protected String savedDate;
+    protected String savedDate = DateUtils.now();
 
     @Override
     protected void initComponent(View view) {
@@ -37,6 +39,6 @@ public class SaveEventFragment extends AbstractEventFragment{
     }
 
     public void setSavedDate(String savedDate) {
-        this.savedDate = savedDate;
+            this.savedDate = savedDate;
     }
 }
