@@ -1,8 +1,10 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 
+import android.annotation.TargetApi;
 import android.app.DialogFragment;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
@@ -75,8 +78,8 @@ public abstract class AbstractListEventsFragment extends DialogFragment implemen
             mCursor = maDB.query(DataBaseHelper.getTableEvenements(), columns, null, null, null, null,
                     null);
             String[] headers = new String[]{DataBaseHelper.getLIBELLE(), DataBaseHelper.getDATE()};
-            mAdapter = new SimpleCursorAdapter(this.getActivity(), android.R.layout.two_line_list_item,
-                    mCursor, headers, new int[]{android.R.id.text1, android.R.id.text2, CursorAdapter.NO_SELECTION});
+            mAdapter = new SimpleCursorAdapter(this.getActivity(),R.layout.list_event_fragment_row,
+                    mCursor, headers, new int[]{R.id.text1, R.id.text2, CursorAdapter.NO_SELECTION});
             mList.setAdapter(mAdapter);
 
         }catch(Exception e){

@@ -54,67 +54,8 @@
         android:layout_toStartOf="@+id/editTextDatePicker"
         android:layout_alignBottom="@+id/spinnerTime" />
 
-    <TextView
-        android:text="Add :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTime"
-        android:layout_alignLeft="@+id/textViewTime"
-        android:layout_alignStart="@+id/textViewTime"
-        android:layout_marginTop="32dp"
-        android:id="@+id/textViewAdd"
-        android:layout_alignRight="@+id/textViewTime"
-        android:layout_alignEnd="@+id/textViewTime" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:ems="10"
-        android:layout_alignRight="@+id/spinnerTime"
-        android:layout_alignEnd="@+id/spinnerTime"
-        android:id="@+id/editTextAdd"
-        android:layout_alignTop="@+id/textViewAdd"
-        android:text="0" />
-
-    <TextView
-        android:text="Resultat :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextAdd"
-        android:layout_alignLeft="@+id/textViewAdd"
-        android:layout_alignStart="@+id/textViewAdd"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="108dp"
-        android:id="@+id/textViewResultat" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textViewResultat"
-        android:layout_alignLeft="@+id/editTextAdd"
-        android:layout_alignStart="@+id/editTextAdd"
-        android:layout_marginLeft="69dp"
-        android:layout_marginStart="69dp"
-        android:id="@+id/textViewResultatDate"
-        android:text="resultat de l'ajout" />
-
-    <Button
-        android:text="Calcul"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewResultatDate"
-        android:layout_alignLeft="@+id/textViewAdd"
-        android:layout_alignStart="@+id/textViewAdd"
-        android:layout_marginBottom="26dp"
-        android:id="@+id/buttonCalculate"
-        android:onClick="calcul"/>
-
     <ImageButton
-        android:src="@drawable/ic_save"
+        android:src="@drawable/ic_border_color_black_48dp"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,15 +68,59 @@
         android:id="@+id/buttonEvent"
         android:onClick="saveEvent"/>
 
+    <TextView
+        android:text="Add :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:id="@+id/textViewAdd"
+        android:layout_below="@+id/textViewTime"
+        android:layout_alignLeft="@+id/textViewTime"
+        android:layout_alignStart="@+id/textViewTime" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/editTextAdd"
+        android:text="0"
+        android:layout_alignBaseline="@+id/textViewAdd"
+        android:layout_alignBottom="@+id/textViewAdd"
+        android:layout_alignLeft="@+id/spinnerTime"
+        android:layout_alignStart="@+id/spinnerTime" />
+
     <ImageButton
-        android:src="@drawable/ic_select_event"
+        android:src="@drawable/ic_assignment_return_black_36dp"
         android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonSelectEvent"
         android:onClick="select"
         android:layout_above="@+id/spinnerTime"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/editTextDatePicker"
+        android:layout_alignEnd="@+id/editTextDatePicker" />
+
+    <ImageButton
+        android:src="@drawable/ic_control_point_black_48dp"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCalculate"
+        android:onClick="calcul"
+        android:layout_below="@+id/editTextAdd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewResultatDate"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/buttonCalculate"
+        android:layout_alignLeft="@+id/textViewAdd"
+        android:layout_alignStart="@+id/textViewAdd"
+        android:layout_alignRight="@+id/editTextAdd"
+        android:layout_alignEnd="@+id/editTextAdd" />
 
 </RelativeLayout>

@@ -1,11 +1,15 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 
 import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
@@ -17,23 +21,22 @@ import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.UpdateDe
  */
 
 public class CRUDListEventsFragment extends AbstractListEventsFragment {
-    private Button buttonNew;
+
+    private ImageButton buttonNew;
 
     @Override
     protected void initComponent(View view) {
        GridLayout grid = (GridLayout) view.findViewById(R.id.gridLayoutListEventsFragment);
-        this.buttonNew = new Button(view.getContext());
+        this.buttonNew = new ImageButton(view.getContext());
+        buttonNew.setImageResource(R.drawable.ic_border_color_black_36dp);
+        buttonNew.setBackgroundColor(getResources().getColor(R.color.white));
 
-        buttonNew.setText("New Event");
-        buttonNew.setTextColor(getResources().getColor(R.color.white));
-        buttonNew.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.WRAP_CONTENT);
         buttonNew.setLayoutParams(params);
-        buttonNew.setGravity(Gravity.END);
 
         grid.addView(buttonNew, new GridLayout.LayoutParams(
                 GridLayout.spec(3,GridLayout.END),
-                GridLayout.spec(1,GridLayout.END)));
+                GridLayout.spec(0,GridLayout.END)));
         buttonNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
