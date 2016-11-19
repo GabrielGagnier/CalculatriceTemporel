@@ -17,6 +17,9 @@ import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.List
 import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 
 public class AddActivity extends AppCompatActivity {
+    /**
+     * variable permettant d'afficher le log des erreurs
+     */
     private boolean gotResult = false;
 
     @Override
@@ -37,6 +40,10 @@ public class AddActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
     }
 
+    /**
+     *accet au calendar android depuis le bouton date picker
+     * @param v
+     */
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = new DatePickerFragment();
         newFragment.setEditText((EditText) findViewById(R.id.editTextDatePicker));
@@ -49,6 +56,10 @@ public class AddActivity extends AppCompatActivity {
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
     }
 
+    /**
+     * fonction appellée a l'apuis du bouton calcul et affiche le resulata a l'ecran
+     * @param v
+     */
     public void calcul(View v){
         try {
             String date = ((EditText) findViewById(R.id.editTextDatePicker)).getText().toString();
@@ -82,10 +93,14 @@ public class AddActivity extends AppCompatActivity {
         }catch(Exception e){
             TextView textViewResultatDate = (TextView) findViewById(R.id.textViewResultatDate);
             textViewResultatDate.setTextColor(getResources().getColor(R.color.red));
-            textViewResultatDate.setText("Données mal renseigné!");
+            textViewResultatDate.setText(getResources().getString(R.string.erreur_de_saisie));
         }
     }
 
+    /**
+     *fonction appelle a l'apuis sur le bouton save event qui permet de sauvegarder le resultat du calcul ou autre evenement
+     * @param V
+     */
     public void saveEvent(View V){
         SaveEventFragment newFragment = new SaveEventFragment();
         if(this.gotResult)
@@ -93,9 +108,13 @@ public class AddActivity extends AppCompatActivity {
         newFragment.show(getFragmentManager(),"saveEvent");
     }
 
+    /**
+     * lors de l'apuis sur le sur le bouton select la list des evenements aparais
+     * @param V
+     */
     public void select(View V){
         ListEventsFragment newFragment = new ListEventsFragment();
         newFragment.setIdText(R.id.editTextDatePicker);
-        newFragment.show(getFragmentManager(),"datePicker");
+        newFragment.show(getFragmentManager(),"ListEventsFragment");
     }
 }

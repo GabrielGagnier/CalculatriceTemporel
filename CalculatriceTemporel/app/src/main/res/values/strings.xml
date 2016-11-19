@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CalculatriceTemporel</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="erreur_de_saisie">Donnée mal renseigné!</string>
 </resources>

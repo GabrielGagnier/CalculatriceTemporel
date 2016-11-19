@@ -7,6 +7,9 @@ import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
 
 public class ListEventsFragment extends AbstractListEventsFragment{
 
+    /**
+     * identifiant du text a changer a l'action
+     */
     private int idText;
 
     @Override

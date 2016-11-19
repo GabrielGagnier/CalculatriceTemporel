@@ -2,7 +2,6 @@ package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,10 +41,14 @@ public abstract class AbstractEventFragment extends DialogFragment {
     }
 
     /**
-     * dans les classes fille au minimum set le onClick de buttonEventFragment
+     * initialise les composent non present dans l'abstract
      */
     protected abstract void initComponent(View view);
 
+    /**
+     * initialise l'action donner par le bouton EventFragment
+     */
+    protected abstract void onButtonEventFragmentAction();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,10 +68,22 @@ public abstract class AbstractEventFragment extends DialogFragment {
                 newFragment.show(getFragmentManager(),"datePicker");
             }
         });
+        this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onButtonEventFragmentAction();
+                goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
+                getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
+            }
+        });
         this.initComponent(v);
         return v;
     }
 
+    /**
+     * permet de setter le dialog fragment de retour apres l'action du bouton
+     * @param goOnButtonEventFragment
+     * @param tag
+     */
     public void setGoOnButtonEventFragment(DialogFragment goOnButtonEventFragment, String tag) {
         this.goOnButtonEventFragment = goOnButtonEventFragment;
         this.tagGoOnButtonEventFragment = tag;

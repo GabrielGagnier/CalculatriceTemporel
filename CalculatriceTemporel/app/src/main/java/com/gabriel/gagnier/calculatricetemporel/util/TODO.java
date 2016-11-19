@@ -1,9 +1,11 @@
+package com.gabriel.gagnier.calculatricetemporel.util;
+
 /**
  * Created by gagnier on 18/11/16.
  */
 
 public class TODO {
-    /**TODO long terme
+    /**com.gabriel.gagnier.calculatricetemporel.util.TODO long terme
      * trie evenement dans listEventsFragment
      * bdd version 2: date de saisie/modif
      * notification
@@ -12,13 +14,13 @@ public class TODO {
      * toolbar
     */
 
-    /**TODO moyen terme
+    /**com.gabriel.gagnier.calculatricetemporel.util.TODO moyen terme
      * graphisme:
         * main vue
         * trouver une solution pour les libelle
     */
 
-    /**TODO court terme
+    /**com.gabriel.gagnier.calculatricetemporel.util.TODO court terme
      * graphisme:
         * Flying button
         * main vue

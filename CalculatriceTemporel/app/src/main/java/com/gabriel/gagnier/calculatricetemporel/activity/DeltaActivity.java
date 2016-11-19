@@ -36,16 +36,24 @@ public class DeltaActivity extends AppCompatActivity{
         spinner.setAdapter(adapter);
     }
 
+    /**
+     *accet au calendar android depuis le bouton date picker 1
+     * @param v
+     */
     public void showDatePickerDialog1(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
         newFragment.setEditText((EditText) findViewById(R.id.editTextDate1));
-        newFragment.show(getFragmentManager(),"datePicker");
+        newFragment.show(getFragmentManager(),"DatePickerFragment");
     }
 
+    /**
+     *accet au calendar android depuis le bouton date picker 2
+     * @param v
+     */
     public void showDatePickerDialog2(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
         newFragment.setEditText((EditText) findViewById(R.id.editTextDate2));
-        newFragment.show(getFragmentManager(),"datePicker");
+        newFragment.show(getFragmentManager(),"DatePickerFragment");
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -53,6 +61,10 @@ public class DeltaActivity extends AppCompatActivity{
         textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
     }
 
+    /**
+     * affiche la difference entre date1 et date2 lors de l'appuis sur le bouton calcul
+     * @param v
+     */
     public void calcul(View v){
         try {
             String date1 = ((EditText) findViewById(R.id.editTextDate1)).getText().toString();
@@ -75,23 +87,29 @@ public class DeltaActivity extends AppCompatActivity{
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.green));
                     break;
                 default:
-                    textViewResultatDate.setText("Données mal renseigné!");
+                    textViewResultatDate.setText(getResources().getString(R.string.erreur_de_saisie));
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.red));
                     break;
             }
         }catch(Exception e){
             TextView textViewResultatDate = (TextView) findViewById(R.id.textViewDateRes);
-            textViewResultatDate.setText("Données mal renseigné!");
+            textViewResultatDate.setText(getResources().getString(R.string.erreur_de_saisie));
             textViewResultatDate.setTextColor(getResources().getColor(R.color.red));
         }
     }
-
+    /**
+     * lors de l'apuis sur le sur le bouton select 1 la list des evenements aparais
+     * @param v
+     */
     public void select1(View v){
         ListEventsFragment newFragment = new ListEventsFragment();
         newFragment.setIdText(R.id.editTextDate1);
         newFragment.show(getFragmentManager(),"datePicker");
     }
-
+    /**
+     * lors de l'apuis sur le sur le bouton select 2 la list des evenements aparais
+     * @param v
+     */
     public void select2(View v){
         ListEventsFragment newFragment = new ListEventsFragment();
         newFragment.setIdText(R.id.editTextDate2);

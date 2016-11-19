@@ -1,9 +1,9 @@
 package com.gabriel.gagnier.calculatricetemporel.util;
 
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by gagnier on 13/11/16.
@@ -21,7 +21,7 @@ public class DateUtils {
      * @throws Exception
      */
     private static String add(int time, String date, int i) throws Exception{
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
         Calendar c = Calendar.getInstance();
         c.setTime(format.parse(date));
         c.add(time, i);
@@ -37,19 +37,19 @@ public class DateUtils {
      * @throws Exception
      */
     private static int delta(int time, String date1, String date2) throws Exception{
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy",Locale.FRANCE);
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(format.parse(date1));
         Calendar cal2 = Calendar.getInstance();
         cal2.setTime(format.parse(date2));
 
 
-        int diffMonths = 0;
-        int diffYears = 0;
+        int diffMonths;
+        int diffYears;
 
         long timeCal1 = cal1.getTimeInMillis();
         long timeCal2 = cal2.getTimeInMillis();
-        long difference = 0;
+        long difference;
 
         if(timeCal1 < timeCal2){
             difference = timeCal2 - timeCal1;
@@ -148,7 +148,7 @@ public class DateUtils {
      * @throws Exception
      */
     public static String now(){
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy",Locale.FRANCE);
         Calendar c = Calendar.getInstance();
         return format.format(c.getTime());
     }

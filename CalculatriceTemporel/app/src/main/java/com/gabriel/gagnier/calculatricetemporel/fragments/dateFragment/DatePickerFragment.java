@@ -6,6 +6,8 @@ import android.app.DialogFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -17,7 +19,9 @@ import android.widget.EditText;
 
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
-
+    /**
+     * permet de set l'editText devant changer a la selection d'une dante
+     */
     private EditText editText;
 
     @Override
@@ -34,7 +38,7 @@ public class DatePickerFragment extends DialogFragment
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
         Calendar c = Calendar.getInstance();
         c.set(year,month,day);
         String date = format.format(c.getTime());

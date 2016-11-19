@@ -1,8 +1,6 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Gravity;
@@ -12,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
 
 /**
  * Created by thibault on 16/11/2016.
@@ -36,7 +33,7 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         GridLayout grid = (GridLayout) view.findViewById(R.id.gridLayoutEventFragment);
         this.buttonDelete = new Button(view.getContext());
 
-        buttonDelete.setText("Delete");
+        buttonDelete.setText(getResources().getString(R.string.delete));
         buttonDelete.setTextColor(getResources().getColor(R.color.white));
         buttonDelete.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -70,47 +67,45 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
             this.checkBoxNotification.toggle();
         this.checkBoxNotification.setEnabled(false);
 
-        this.buttonEventFragment.setText("Update");
-        this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            if(isUpdatebled) {
+        this.buttonEventFragment.setText(getResources().getString(R.string.update));
+    }
 
-                libele = editTextLibelle.getText().toString();
-                date = editTextDate.getText().toString();
-                commentaire = editTextCommentaire.getText().toString();
+    @Override
+    protected void onButtonEventFragmentAction() {
+        if(isUpdatebled) {
 
-                int notification;
-                if(checkBoxNotification.isChecked())
-                    notification = 1;
-                else
-                    notification = 0;
-                SQLiteDatabase db = mHelper.getWritableDatabase();
+            libele = editTextLibelle.getText().toString();
+            date = editTextDate.getText().toString();
+            commentaire = editTextCommentaire.getText().toString();
 
-                ContentValues cv = new ContentValues(4);
-                cv.put("libelle",libele);
-                cv.put("date",date);
-                cv.put("commentaire",commentaire);
-                cv.put("notification",notification);
+            int notification;
+            if(checkBoxNotification.isChecked())
+                notification = 1;
+            else
+                notification = 0;
+            SQLiteDatabase db = mHelper.getWritableDatabase();
 
-                mHelper.openDataBase();
+            ContentValues cv = new ContentValues(4);
+            cv.put("libelle",libele);
+            cv.put("date",date);
+            cv.put("commentaire",commentaire);
+            cv.put("notification",notification);
 
-                db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
+            mHelper.openDataBase();
+
+            db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
 
 
-                db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
+            db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
 
-                goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
-                getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
-            }
-            else {
-                editTextLibelle.setEnabled(true);
-                editTextDate.setEnabled(true);
-                editTextCommentaire.setEnabled(true);
-                checkBoxNotification.setEnabled(true);
-                isUpdatebled = true;
-            }
-            }
-        });
+        }
+        else {
+            editTextLibelle.setEnabled(true);
+            editTextDate.setEnabled(true);
+            editTextCommentaire.setEnabled(true);
+            checkBoxNotification.setEnabled(true);
+            isUpdatebled = true;
+        }
     }
 
     public void setId(int id) {
