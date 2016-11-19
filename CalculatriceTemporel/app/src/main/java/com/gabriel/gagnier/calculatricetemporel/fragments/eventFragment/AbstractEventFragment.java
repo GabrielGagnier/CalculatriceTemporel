@@ -2,6 +2,7 @@ package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,12 @@ import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 public abstract class AbstractEventFragment extends DialogFragment {
 
     protected DataBaseHelper mHelper;
-   // protected String savedDate;
     protected AbstractEventFragment currentFragment;
+    protected DialogFragment goOnButtonEventFragment;
+    protected String tagGoOnButtonEventFragment;
 
     protected EditText editTextLibelle;
-    protected EditText editTextDatePickerSave;
+    protected EditText editTextDate;
     protected EditText editTextCommentaire;
     protected CheckBox checkBoxNotification;
     protected Button buttonTimePickerEventFragment;
@@ -49,8 +51,8 @@ public abstract class AbstractEventFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_event, container, false);
         this.editTextLibelle = (EditText) v.findViewById(R.id.editTextLibelle);
-        this.editTextDatePickerSave = (EditText) v.findViewById(R.id.editTextDatePickerSave);
-        editTextDatePickerSave.setText(DateUtils.now());
+        this.editTextDate = (EditText) v.findViewById(R.id.editTextDate);
+        editTextDate.setText(DateUtils.now());
         this.editTextCommentaire = (EditText) v.findViewById(R.id.editTextCommentaire);
         this.checkBoxNotification = (CheckBox) v.findViewById(R.id.checkBoxNotification);
         this.checkBoxNotification.toggle();
@@ -59,12 +61,17 @@ public abstract class AbstractEventFragment extends DialogFragment {
         this.buttonTimePickerEventFragment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DatePickerFragment newFragment = new DatePickerFragment();
-                newFragment.setEditText(editTextDatePickerSave);
+                newFragment.setEditText(editTextDate);
                 newFragment.show(getFragmentManager(),"datePicker");
             }
         });
         this.initComponent(v);
         return v;
+    }
+
+    public void setGoOnButtonEventFragment(DialogFragment goOnButtonEventFragment, String tag) {
+        this.goOnButtonEventFragment = goOnButtonEventFragment;
+        this.tagGoOnButtonEventFragment = tag;
     }
 }
 

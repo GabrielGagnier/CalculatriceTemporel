@@ -31,12 +31,14 @@ public abstract class AbstractListEventsFragment extends DialogFragment implemen
     protected SQLiteDatabase maDB;
     protected Cursor mCursor;
     protected SimpleCursorAdapter mAdapter;
+    protected AbstractListEventsFragment currentFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //obtention du helper
         mHelper = new DataBaseHelper(this.getActivity());
+        currentFragment = this;
     }
 
     /**

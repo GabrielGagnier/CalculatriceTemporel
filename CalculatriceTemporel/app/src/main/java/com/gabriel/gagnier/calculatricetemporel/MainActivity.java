@@ -67,6 +67,6 @@ public class MainActivity extends AppCompatActivity {
     public void launchEvents(View V)
     {
         CRUDListEventsFragment newFragment = new CRUDListEventsFragment();
-        newFragment.show(getFragmentManager(),"CRUDListEvent");
+        newFragment.show(getFragmentManager(),"CRUDListEventsFragment");
     }
 }

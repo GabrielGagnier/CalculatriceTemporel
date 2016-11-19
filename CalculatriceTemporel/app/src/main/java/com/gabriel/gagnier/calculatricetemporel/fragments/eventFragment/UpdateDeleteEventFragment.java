@@ -1,5 +1,8 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Gravity;
@@ -9,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
+import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
 
 /**
  * Created by thibault on 16/11/2016.
@@ -16,6 +20,7 @@ import com.gabriel.gagnier.calculatricetemporel.R;
 
 public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
+    private boolean isUpdatebled = false;
     private int id;
     private int notification;
     private String date;
@@ -23,6 +28,8 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
     private String commentaire;
 
     private Button buttonDelete;
+    protected DialogFragment goOnButtonDeleteFragment;
+    protected String tagGoOnButtonDeleteFragment;
 
     @Override
     protected void initComponent(View view) {
@@ -42,29 +49,34 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SQLiteDatabase db = mHelper.getWritableDatabase();
-                mHelper.openDataBase();
-
-                db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
-
-
+                    SQLiteDatabase db = mHelper.getWritableDatabase();
+                    mHelper.openDataBase();
+                    db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
+                goOnButtonDeleteFragment.show(getFragmentManager(),tagGoOnButtonDeleteFragment);
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
             }
         });
 
         this.editTextLibelle.setText(libele);
-        this.editTextDatePickerSave.setText(date);
+        this.editTextLibelle.setEnabled(false);
+
+        this.editTextDate.setText(date);
+        this.editTextDate.setEnabled(false);
+
         this.editTextCommentaire.setText(commentaire);
+        this.editTextCommentaire.setEnabled(false);
 
         if(0 == notification)
             this.checkBoxNotification.toggle();
+        this.checkBoxNotification.setEnabled(false);
 
         this.buttonEventFragment.setText("Update");
         this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
+            if(isUpdatebled) {
+
                 libele = editTextLibelle.getText().toString();
-                date = editTextDatePickerSave.getText().toString();
+                date = editTextDate.getText().toString();
                 commentaire = editTextCommentaire.getText().toString();
 
                 int notification;
@@ -87,7 +99,16 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
                 db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
 
+                goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
+            }
+            else {
+                editTextLibelle.setEnabled(true);
+                editTextDate.setEnabled(true);
+                editTextCommentaire.setEnabled(true);
+                checkBoxNotification.setEnabled(true);
+                isUpdatebled = true;
+            }
             }
         });
     }
@@ -112,6 +133,8 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         this.notification = notification;
     }
 
-
-
+    public void setGoOnButtonDeleteFragment(DialogFragment goOnButtonDeleteFragment, String tag) {
+        this.goOnButtonDeleteFragment = goOnButtonDeleteFragment;
+        this.tagGoOnButtonDeleteFragment = tag;
+    }
 }

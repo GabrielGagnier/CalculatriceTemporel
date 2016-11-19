@@ -1,5 +1,7 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
@@ -12,11 +14,11 @@ public class SaveEventFragment extends AbstractEventFragment{
 
     @Override
     protected void initComponent(View view) {
-        this.editTextDatePickerSave.setText(savedDate);
+        this.editTextDate.setText(savedDate);
         this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String libelle = editTextLibelle.getText().toString();
-                String date = editTextDatePickerSave.getText().toString();
+                String date = editTextDate.getText().toString();
                 String commentaire = editTextCommentaire.getText().toString();
                 int notification;
                 if(checkBoxNotification.isChecked())
@@ -33,7 +35,11 @@ public class SaveEventFragment extends AbstractEventFragment{
 
                 mHelper.openDataBase();
                 db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
+                goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
+
+
+
             }
         });
     }
