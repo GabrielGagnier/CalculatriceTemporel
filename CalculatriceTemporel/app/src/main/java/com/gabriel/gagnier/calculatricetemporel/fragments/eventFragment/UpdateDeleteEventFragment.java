@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
+import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
 
 /**
  * Created by thibault on 16/11/2016.
@@ -36,20 +37,20 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         buttonDelete.setText(getResources().getString(R.string.delete));
         buttonDelete.setTextColor(getResources().getColor(R.color.white));
         buttonDelete.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         buttonDelete.setLayoutParams(params);
         buttonDelete.setGravity(Gravity.START);
 
         grid.addView(buttonDelete, new GridLayout.LayoutParams(
-                GridLayout.spec(5,GridLayout.START),
-                GridLayout.spec(0,GridLayout.START)));
+                GridLayout.spec(5, GridLayout.START),
+                GridLayout.spec(0, GridLayout.START)));
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    SQLiteDatabase db = mHelper.getWritableDatabase();
-                    mHelper.openDataBase();
-                    db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
-                goOnButtonDeleteFragment.show(getFragmentManager(),tagGoOnButtonDeleteFragment);
+                SQLiteDatabase db = mHelper.getWritableDatabase();
+                mHelper.openDataBase();
+                db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
+                goOnButtonDeleteFragment.show(getFragmentManager(), tagGoOnButtonDeleteFragment);
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
             }
         });
@@ -63,7 +64,7 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         this.editTextCommentaire.setText(commentaire);
         this.editTextCommentaire.setEnabled(false);
 
-        if(0 == notification)
+        if (0 == notification)
             this.checkBoxNotification.toggle();
         this.checkBoxNotification.setEnabled(false);
 
@@ -72,24 +73,24 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
     @Override
     protected void onButtonEventFragmentAction() {
-        if(isUpdatebled) {
-
+        if (isUpdatebled) {
+            enableGoOnEventFragmnent = true;
             libele = editTextLibelle.getText().toString();
             date = editTextDate.getText().toString();
             commentaire = editTextCommentaire.getText().toString();
 
             int notification;
-            if(checkBoxNotification.isChecked())
+            if (checkBoxNotification.isChecked())
                 notification = 1;
             else
                 notification = 0;
             SQLiteDatabase db = mHelper.getWritableDatabase();
 
             ContentValues cv = new ContentValues(4);
-            cv.put("libelle",libele);
-            cv.put("date",date);
-            cv.put("commentaire",commentaire);
-            cv.put("notification",notification);
+            cv.put("libelle", libele);
+            cv.put("date", date);
+            cv.put("commentaire", commentaire);
+            cv.put("notification", notification);
 
             mHelper.openDataBase();
 
@@ -98,8 +99,8 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
             db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
 
-        }
-        else {
+        } else {
+            enableGoOnEventFragmnent = false;
             editTextLibelle.setEnabled(true);
             editTextDate.setEnabled(true);
             editTextCommentaire.setEnabled(true);

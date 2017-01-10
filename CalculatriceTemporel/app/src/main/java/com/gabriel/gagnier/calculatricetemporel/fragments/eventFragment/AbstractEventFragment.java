@@ -24,6 +24,7 @@ public abstract class AbstractEventFragment extends DialogFragment {
     protected AbstractEventFragment currentFragment;
     protected DialogFragment goOnButtonEventFragment;
     protected String tagGoOnButtonEventFragment;
+    protected boolean enableGoOnEventFragmnent;
 
     protected EditText editTextLibelle;
     protected EditText editTextDate;
@@ -38,6 +39,7 @@ public abstract class AbstractEventFragment extends DialogFragment {
         //obtention du helper
         mHelper = new DataBaseHelper(this.getActivity());
         this.currentFragment = this;
+        this.enableGoOnEventFragmnent = true;
     }
 
     /**
@@ -71,8 +73,10 @@ public abstract class AbstractEventFragment extends DialogFragment {
         this.buttonEventFragment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onButtonEventFragmentAction();
-                goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
-                getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
+                if(enableGoOnEventFragmnent) {
+                    goOnButtonEventFragment.show(getFragmentManager(), tagGoOnButtonEventFragment);
+                    getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
+                }
             }
         });
         this.initComponent(v);
