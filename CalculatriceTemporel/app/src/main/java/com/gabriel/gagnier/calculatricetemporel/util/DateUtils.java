@@ -1,8 +1,14 @@
 package com.gabriel.gagnier.calculatricetemporel.util;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -11,7 +17,8 @@ import java.util.Locale;
 
 public class DateUtils {
 
-
+    private static final String ID_NUMBER_DAY_FOR_NOTIFICATION = "numberPref_Key";
+    private static final String ID_TIME_FOR_NOTIFICATION = "timePref_Key";
     /**
      *
      * @param time definit l'operation d'addition (sur les jours, mois, annees [...])
@@ -140,6 +147,20 @@ public class DateUtils {
      */
     public static int deltaYear(String date1, String date2)throws Exception{
         return delta(Calendar.YEAR, date1, date2);
+    }
+
+    public static Long timeToBeNotifiate(String date, Context context) throws Exception{
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy",Locale.FRANCE);
+        Calendar calNotif = Calendar.getInstance();
+        Date hoursNotif = new Date(Long.parseLong(preferences.getString(ID_TIME_FOR_NOTIFICATION,"0")));
+
+        calNotif.setTime(format.parse(date));
+        calNotif.add(Calendar.DATE, - (Integer.parseInt(preferences.getString(ID_NUMBER_DAY_FOR_NOTIFICATION,"0"))));
+        calNotif.set(Calendar.HOUR_OF_DAY, hoursNotif.getHours());
+        calNotif.set(Calendar.MINUTE, hoursNotif.getMinutes());
+
+        return calNotif.getTimeInMillis();
     }
 
     /**

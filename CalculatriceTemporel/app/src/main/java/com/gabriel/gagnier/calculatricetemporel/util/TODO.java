@@ -10,7 +10,7 @@ public class TODO {
      * bdd version 2: date de saisie/modif
      * notification
      * revue graphique
-     * setings
+     * setings (settings notification faite, a voir si on a besoin d'autre)
      * toolbar
     */
 
