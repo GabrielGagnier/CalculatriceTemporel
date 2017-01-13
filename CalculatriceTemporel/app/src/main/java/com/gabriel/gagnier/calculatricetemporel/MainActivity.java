@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent it = new Intent();
+            it.setAction("com.gabriel.gagnier.calculatricetemporel.SETTINGS");
+            startActivity(it);
             return true;
         }
 

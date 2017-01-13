@@ -27,16 +27,28 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-      <!--  <activity android:name=".SaveEventFragment">
+        <!--
+        <activity android:name=".SaveEventFragment">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.SAVE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
         <activity android:name=".activity.DeltaActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.DELTA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings">
+            <intent-filter>
+                <action android:name="com.gabriel.gagnier.calculatricetemporel.SETTINGS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

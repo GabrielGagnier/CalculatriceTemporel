@@ -40,8 +40,6 @@ public class SaveEventFragment extends AbstractEventFragment{
 
         mHelper.openDataBase();
         db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
-        //goOnButtonEventFragment.show(getFragmentManager(),tagGoOnButtonEventFragment);
-        //getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
     }
 
     public void setSavedDate(String savedDate) {
