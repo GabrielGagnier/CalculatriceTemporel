@@ -24,11 +24,11 @@
         android:key="notifications_active_vibrate"
         android:title="@string/pref_title_vibrate" />
 
-    <com.gabriel.gagnier.calculatricetemporel.util.TimePreference
+    <com.gabriel.gagnier.calculatricetemporel.util.notification.TimePreference
         android:key="timePref_Key"
         android:title="@string/pref_title_time_notifications"/>
 
-    <com.gabriel.gagnier.calculatricetemporel.util.NumberPreference
+    <com.gabriel.gagnier.calculatricetemporel.util.notification.NumberPreference
         android:key="numberPref_Key"
         android:title="@string/pref_title_number_notifications"/>
 

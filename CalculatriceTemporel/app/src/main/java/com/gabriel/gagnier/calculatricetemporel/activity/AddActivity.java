@@ -14,7 +14,7 @@ import com.gabriel.gagnier.calculatricetemporel.R;
 import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
 import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.SaveEventFragment;
 import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.ListEventsFragment;
-import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
+import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
 
 public class AddActivity extends AppCompatActivity {
     /**

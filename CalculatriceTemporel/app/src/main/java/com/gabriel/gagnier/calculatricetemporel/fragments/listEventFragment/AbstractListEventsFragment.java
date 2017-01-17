@@ -1,10 +1,8 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 
-import android.annotation.TargetApi;
 import android.app.DialogFragment;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +11,8 @@ import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
-import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
 
 /**

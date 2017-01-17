@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
+import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
 
 /**
  * Created by gagnier on 16/11/16.

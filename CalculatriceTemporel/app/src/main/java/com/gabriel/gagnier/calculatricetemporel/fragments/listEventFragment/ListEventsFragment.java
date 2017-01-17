@@ -3,7 +3,7 @@ package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 import android.view.View;
 import android.widget.EditText;
 
-import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
 
 public class ListEventsFragment extends AbstractListEventsFragment{
 

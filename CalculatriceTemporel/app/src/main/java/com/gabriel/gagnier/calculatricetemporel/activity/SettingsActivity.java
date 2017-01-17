@@ -21,7 +21,6 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.util.DateUtils;
 
 import java.util.List;
 

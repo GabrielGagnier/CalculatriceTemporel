@@ -1,24 +1,17 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
 
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.gabriel.gagnier.calculatricetemporel.util.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
 import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.SaveEventFragment;
 import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.UpdateDeleteEventFragment;
-
-import java.util.List;
 
 /**
  * Created by thibault on 16/11/2016.
