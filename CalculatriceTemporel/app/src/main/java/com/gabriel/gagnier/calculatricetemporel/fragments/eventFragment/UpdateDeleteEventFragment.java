@@ -51,6 +51,9 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
                 mHelper.openDataBase();
                 db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
                 goOnButtonDeleteFragment.show(getFragmentManager(), tagGoOnButtonDeleteFragment);
+                if(notification == 1){
+                    cancelNotification(id);
+                }
                 getActivity().getFragmentManager().beginTransaction().remove(currentFragment).commit();
             }
         });
@@ -64,7 +67,7 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
         this.editTextCommentaire.setText(commentaire);
         this.editTextCommentaire.setEnabled(false);
 
-        if (0 == notification)
+        if (notification != 0)
             this.checkBoxNotification.toggle();
         this.checkBoxNotification.setEnabled(false);
 
@@ -80,10 +83,19 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
             commentaire = editTextCommentaire.getText().toString();
 
             int notification;
-            if (checkBoxNotification.isChecked())
+            if (checkBoxNotification.isChecked()){
                 notification = 1;
-            else
+                cancelNotification(id);
+                try {
+                    scheduleNotification(commentaire, libele, id, date);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+            else{
+                cancelNotification(id);
                 notification = 0;
+            }
             SQLiteDatabase db = mHelper.getWritableDatabase();
 
             ContentValues cv = new ContentValues(4);

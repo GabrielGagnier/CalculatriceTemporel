@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.services;
+package com.gabriel.gagnier.calculatricetemporel.services.notification;
 
 import android.app.AlarmManager;
 import android.app.IntentService;
@@ -16,13 +16,13 @@ import com.gabriel.gagnier.calculatricetemporel.util.notification.NotificationPu
  * Created by gagnier on 10/01/17.
  */
 
-public class NotificationService  extends IntentService  {
-    private static final String NAME = "Notification Service";
+public class SendNotificationService extends IntentService  {
+    private static final String NAME = "Send Notification Service";
 
     /**
      * constructeur par default
      */
-    public NotificationService() {
+    public SendNotificationService() {
         super(NAME);
     }
 
@@ -37,7 +37,7 @@ public class NotificationService  extends IntentService  {
 
         //TODO ajouter les tests necessaire
         if (extras.getParcelable("notification") != null && extras.getParcelable("notification").getClass() == Notification.class) {
-            sendNotification((Notification)extras.getParcelable("notification"),extras.getLong("id"),extras.getLong("delay"));
+            sendNotification((Notification)extras.getParcelable("notification"),extras.getInt("id"),extras.getLong("delay"));
         } else {
             new IllegalArgumentException("PUSH_RECEIVED NOT HANDLED!");
         }
@@ -48,7 +48,7 @@ public class NotificationService  extends IntentService  {
      * @param notification
      * @param delay
      */
-    private void sendNotification(Notification notification,Long idNotification, Long delay) {
+    private void sendNotification(Notification notification,int idNotification, Long delay) {
         if (delay > 0) {
             Intent notificationIntent = new Intent(this, NotificationPublisher.class);
             notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, idNotification);

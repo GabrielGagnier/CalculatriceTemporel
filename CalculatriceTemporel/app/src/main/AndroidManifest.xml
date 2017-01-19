@@ -65,7 +65,10 @@
             </intent-filter>
         </receiver>
         <service
-            android:name=".services.NotificationService"
+            android:name=".services.notification.SendNotificationService"
+            android:exported="false"/>
+        <service
+            android:name=".services.notification.CancelNotificationService"
             android:exported="false"/>
     </application>
 

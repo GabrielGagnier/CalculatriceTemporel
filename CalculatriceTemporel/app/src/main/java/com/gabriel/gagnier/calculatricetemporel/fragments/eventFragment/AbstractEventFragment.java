@@ -1,6 +1,8 @@
 package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
 
 import android.app.DialogFragment;
+import android.app.Notification;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.gabriel.gagnier.calculatricetemporel.services.notification.CancelNotificationService;
+import com.gabriel.gagnier.calculatricetemporel.services.notification.SendNotificationService;
 import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
 import com.gabriel.gagnier.calculatricetemporel.R;
@@ -91,6 +95,47 @@ public abstract class AbstractEventFragment extends DialogFragment {
     public void setGoOnButtonEventFragment(DialogFragment goOnButtonEventFragment, String tag) {
         this.goOnButtonEventFragment = goOnButtonEventFragment;
         this.tagGoOnButtonEventFragment = tag;
+    }
+
+    /**
+     * lance l'intentService de notification (qui est un thread non gere par l'aplication)
+     * @param message
+     * @param title
+     * @param date
+     */
+    protected void scheduleNotification(String message, String title, int id, String date) throws Exception {
+        Long delay = DateUtils.delayToBeNotifiate(date, (this.getActivity()).getApplicationContext());
+        Intent intentNotif = new Intent(this.getActivity(), SendNotificationService.class);
+        Bundle bundleNotif = new Bundle();
+
+        Notification notification = createNotif(message,title);
+        bundleNotif.putParcelable("notification",notification);
+        bundleNotif.putInt("id",id);
+        bundleNotif.putLong("delay",delay);
+        intentNotif.putExtras(bundleNotif);
+        this.getActivity().startService(intentNotif);
+    }
+
+    protected void cancelNotification(int id){
+        Intent intentNotif = new Intent(this.getActivity(), CancelNotificationService.class);
+        Bundle bundleNotif = new Bundle();
+        bundleNotif.putInt("id",id);
+        intentNotif.putExtras(bundleNotif);
+        this.getActivity().startService(intentNotif);
+    }
+
+    /**
+     * créé la notification
+     * @param message
+     * @param title
+     * @return
+     */
+    private Notification createNotif(String message,String title){
+        Notification.Builder builder = new Notification.Builder(this.getActivity());
+        builder.setContentTitle(title);
+        builder.setContentText(message);
+        builder.setSmallIcon(R.drawable.ic_info_black_24dp);
+        return builder.build();
     }
 }
 
