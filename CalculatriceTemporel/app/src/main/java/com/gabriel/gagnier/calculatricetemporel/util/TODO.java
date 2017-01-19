@@ -8,10 +8,10 @@ public class TODO {
     /**com.gabriel.gagnier.calculatricetemporel.util.TODO long terme
      * trie evenement dans listEventsFragment
      * bdd version 2: date de saisie/modif
-     * notification
      * revue graphique
      * setings (settings notification faite, a voir si on a besoin d'autre)
      * toolbar
+     * paiment sous 45 jours
     */
 
     /**com.gabriel.gagnier.calculatricetemporel.util.TODO moyen terme
