@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment;
 
 import android.app.DialogFragment;
 import android.app.Notification;
@@ -11,10 +11,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.gabriel.gagnier.calculatricetemporel.services.notification.CancelNotificationService;
-import com.gabriel.gagnier.calculatricetemporel.services.notification.SendNotificationService;
-import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
-import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
+import com.gabriel.gagnier.calculatricetemporel.controler.service.CancelNotificationService;
+import com.gabriel.gagnier.calculatricetemporel.controler.service.SendNotificationService;
+import com.gabriel.gagnier.calculatricetemporel.model.database.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.dateFragment.DatePickerFragment;
 import com.gabriel.gagnier.calculatricetemporel.R;
 import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
 
@@ -89,8 +89,8 @@ public abstract class AbstractEventFragment extends DialogFragment {
 
     /**
      * permet de setter le dialog fragment de retour apres l'action du bouton
-     * @param goOnButtonEventFragment
-     * @param tag
+     * @param goOnButtonEventFragment fragment to go au click sur le bouton
+     * @param tag de ce fragment
      */
     public void setGoOnButtonEventFragment(DialogFragment goOnButtonEventFragment, String tag) {
         this.goOnButtonEventFragment = goOnButtonEventFragment;
@@ -99,9 +99,9 @@ public abstract class AbstractEventFragment extends DialogFragment {
 
     /**
      * lance l'intentService de notification (qui est un thread non gere par l'aplication)
-     * @param message
-     * @param title
-     * @param date
+     * @param message de la notification
+     * @param title de la notification
+     * @param date de la notification
      */
     protected void scheduleNotification(String message, String title, int id, String date) throws Exception {
         Long delay = DateUtils.delayToBeNotifiate(date, (this.getActivity()).getApplicationContext());
@@ -126,9 +126,9 @@ public abstract class AbstractEventFragment extends DialogFragment {
 
     /**
      * créé la notification
-     * @param message
-     * @param title
-     * @return
+     * @param message de la notification
+     * @param title de la notification
+     * @return Notification créé
      */
     private Notification createNotif(String message,String title){
         Notification.Builder builder = new Notification.Builder(this.getActivity());

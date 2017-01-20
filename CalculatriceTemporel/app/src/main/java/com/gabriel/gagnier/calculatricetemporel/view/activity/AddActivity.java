@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.activity;
+package com.gabriel.gagnier.calculatricetemporel.view.activity;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -11,9 +11,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
-import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.SaveEventFragment;
-import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.ListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.dateFragment.DatePickerFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment.SaveEventFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment.ListEventsFragment;
 import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
 
 public class AddActivity extends AppCompatActivity {
@@ -42,7 +42,7 @@ public class AddActivity extends AppCompatActivity {
 
     /**
      *accet au calendar android depuis le bouton date picker
-     * @param v
+     * @param v view
      */
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = new DatePickerFragment();
@@ -58,7 +58,7 @@ public class AddActivity extends AppCompatActivity {
 
     /**
      * fonction appellée a l'apuis du bouton calcul et affiche le resulata a l'ecran
-     * @param v
+     * @param v view
      */
     public void calcul(View v){
         try {
@@ -85,7 +85,7 @@ public class AddActivity extends AppCompatActivity {
                     this.gotResult = true;
                     break;
                 default:
-                    textViewResultatDate.setText("Données mal renseigné!");
+                    textViewResultatDate.setText(getResources().getString(R.string.donne_mal_renseigne));
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.red));
                     break;
             }
@@ -99,7 +99,7 @@ public class AddActivity extends AppCompatActivity {
 
     /**
      *fonction appelle a l'apuis sur le bouton save event qui permet de sauvegarder le resultat du calcul ou autre evenement
-     * @param V
+     * @param V view
      */
     public void saveEvent(View V){
         SaveEventFragment newFragment = new SaveEventFragment();
@@ -110,7 +110,7 @@ public class AddActivity extends AppCompatActivity {
 
     /**
      * lors de l'apuis sur le sur le bouton select la list des evenements aparais
-     * @param V
+     * @param V view
      */
     public void select(View V){
         ListEventsFragment newFragment = new ListEventsFragment();

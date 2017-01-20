@@ -1,11 +1,11 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 
+import com.gabriel.gagnier.calculatricetemporel.controler.database.DataBaseControler;
 import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
 
 public class SaveEventFragment extends AbstractEventFragment{
@@ -24,7 +24,8 @@ public class SaveEventFragment extends AbstractEventFragment{
 
     @Override
     protected void onButtonEventFragmentAction() {
-        int id = 0;
+        int id;
+        String tableName = mHelper.getTableEvenements();
         String libelle = editTextLibelle.getText().toString();
         String date = editTextDate.getText().toString();
         String commentaire = editTextCommentaire.getText().toString();
@@ -42,22 +43,20 @@ public class SaveEventFragment extends AbstractEventFragment{
         cv.put("notification",notification);
 
         mHelper.openDataBase();
-        db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
+        db.insert(tableName, null, cv); //insere l'element dans la bdd
 
         //cree la notification en cas de besoin
         if(notification == 1) {
-            String query = "SELECT _id from " + mHelper.getTableEvenements() + " order by _id DESC limit 1";
-            Cursor c = db.rawQuery(query, null);
-            if (c != null && c.moveToFirst()) {
-                id = Integer.parseInt(Long.toString(c.getLong(0))); //The 0 is the column index, we only have 1 column, so the index is 0
-            }
+            id = Integer.parseInt(Long.toString(DataBaseControler.lastId(db,mHelper.getTableEvenements())));
             try{
-                scheduleNotification(commentaire,libelle,id,date);
+                if(id!=0)
+                    scheduleNotification(commentaire,libelle,id,date);
             }catch(Exception e){
                 e.printStackTrace();
             }
 
         }
+        mHelper.close();
 
     }
 

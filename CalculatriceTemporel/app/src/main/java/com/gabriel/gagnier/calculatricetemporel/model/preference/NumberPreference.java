@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.util.notification;
+package com.gabriel.gagnier.calculatricetemporel.model.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,11 +20,11 @@ public class NumberPreference extends DialogPreference {
         this(ctxt, null);
     }
 
-    public NumberPreference(Context ctxt, AttributeSet attrs) {
+    private NumberPreference(Context ctxt, AttributeSet attrs) {
         this(ctxt, attrs, android.R.attr.dialogPreferenceStyle);
     }
 
-    public NumberPreference(Context ctxt, AttributeSet attrs, int defStyle) {
+    private NumberPreference(Context ctxt, AttributeSet attrs, int defStyle) {
         super(ctxt, attrs, defStyle);
     }
 

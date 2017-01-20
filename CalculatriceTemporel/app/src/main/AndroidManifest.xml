@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddActivity">
+        <activity android:name=".view.activity.AddActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.ADD" />
 
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         -->
-        <activity android:name=".activity.DeltaActivity">
+        <activity android:name=".view.activity.DeltaActivity">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.DELTA" />
 
@@ -45,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name=".view.activity.SettingsActivity"
             android:label="@string/title_activity_settings">
             <intent-filter>
                 <action android:name="com.gabriel.gagnier.calculatricetemporel.SETTINGS" />
@@ -55,7 +55,7 @@
         </activity>
 
         <receiver
-            android:name=".util.notification.NotificationPublisher"
+            android:name=".controler.receiver.NotificationPublisher"
             android:enabled="true"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -65,10 +65,10 @@
             </intent-filter>
         </receiver>
         <service
-            android:name=".services.notification.SendNotificationService"
+            android:name=".controler.service.SendNotificationService"
             android:exported="false"/>
         <service
-            android:name=".services.notification.CancelNotificationService"
+            android:name=".controler.service.CancelNotificationService"
             android:exported="false"/>
     </application>
 

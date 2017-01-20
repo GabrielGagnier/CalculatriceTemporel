@@ -1,9 +1,9 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment;
 
 import android.view.View;
 import android.widget.EditText;
 
-import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.model.database.DataBaseHelper;
 
 public class ListEventsFragment extends AbstractListEventsFragment{
 

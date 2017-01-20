@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment;
 
 
 import android.view.View;
@@ -8,10 +8,10 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.model.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.SaveEventFragment;
-import com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment.UpdateDeleteEventFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment.SaveEventFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment.UpdateDeleteEventFragment;
 
 /**
  * Created by thibault on 16/11/2016.

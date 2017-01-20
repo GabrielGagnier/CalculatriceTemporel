@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment;
 
 import android.app.DialogFragment;
 import android.database.Cursor;
@@ -12,7 +12,7 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.model.database.DataBaseHelper;
 import com.gabriel.gagnier.calculatricetemporel.R;
 
 /**
@@ -40,7 +40,7 @@ public abstract class AbstractListEventsFragment extends DialogFragment implemen
 
     /**
      * initialise d'eventuel nouveaux composant a la vue
-     * @param view
+     * @param view a initier
      */
     protected abstract void initComponent(View view);
 

@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.util.notification;
+package com.gabriel.gagnier.calculatricetemporel.controler.receiver;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -16,8 +16,8 @@ public class NotificationPublisher extends BroadcastReceiver {
 
     /**
      * notifie la gestion android qu'une nouvelle notification est apparue
-     * @param context
-     * @param intent
+     * @param context  de l'application
+     * @param intent contenant la notification
      */
     @Override
     public void onReceive(Context context, Intent intent) {

@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.util.database;
+package com.gabriel.gagnier.calculatricetemporel.model.database;
 
 import android.content.Context;
 import android.database.SQLException;
@@ -13,7 +13,7 @@ import android.util.Log;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
 
-    public  static final String DB_NAME = "Calculatrice_Temporelle.db";
+    private static final String DB_NAME = "Calculatrice_Temporelle.db";
     private static final String DB_PATH = "/data/data/com.gabriel.gagnier.calculatricetemporel/databases/";  //Le chemin menant a la bdd
 
     public DataBaseHelper(Context context) {
@@ -91,7 +91,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         if(checkDB != null){
             checkDB.close();
         }
-        return checkDB != null ? true : false;
+        return checkDB != null;
     }
 
     public SQLiteDatabase getMyDataBase(){

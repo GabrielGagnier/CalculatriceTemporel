@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.eventFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.eventFragment;
 
 import android.app.DialogFragment;
 import android.content.ContentValues;
@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.controler.database.DataBaseControler;
 
 /**
  * Created by thibault on 16/11/2016.
@@ -106,10 +106,7 @@ public class UpdateDeleteEventFragment extends AbstractEventFragment {
 
             mHelper.openDataBase();
 
-            db.delete(mHelper.getTableEvenements(), "_id = ?", new String[]{Integer.toString(id)});
-
-
-            db.insert(mHelper.getTableEvenements(), null, cv); //insere l'element dans la bdd
+            DataBaseControler.update(db,mHelper.getTableEvenements(),id,cv);
 
         } else {
             enableGoOnEventFragmnent = false;

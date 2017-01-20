@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.util.notification;
+package com.gabriel.gagnier.calculatricetemporel.model.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,11 +20,11 @@ public class TimePreference extends DialogPreference {
         this(ctxt, null);
     }
 
-    public TimePreference(Context ctxt, AttributeSet attrs) {
+    private TimePreference(Context ctxt, AttributeSet attrs) {
         this(ctxt, attrs, android.R.attr.dialogPreferenceStyle);
     }
 
-    public TimePreference(Context ctxt, AttributeSet attrs, int defStyle) {
+    private TimePreference(Context ctxt, AttributeSet attrs, int defStyle) {
         super(ctxt, attrs, defStyle);
 
         setPositiveButtonText("SAVE");

@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment;
+package com.gabriel.gagnier.calculatricetemporel.view.fragments.dateFragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

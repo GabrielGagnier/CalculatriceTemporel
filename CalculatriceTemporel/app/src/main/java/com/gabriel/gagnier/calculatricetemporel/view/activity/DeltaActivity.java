@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.activity;
+package com.gabriel.gagnier.calculatricetemporel.view.activity;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -11,9 +11,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.gabriel.gagnier.calculatricetemporel.R;
-import com.gabriel.gagnier.calculatricetemporel.fragments.dateFragment.DatePickerFragment;
-import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.ListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.dateFragment.DatePickerFragment;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment.ListEventsFragment;
 import com.gabriel.gagnier.calculatricetemporel.util.date.DateUtils;
+
+import java.util.Locale;
 
 public class DeltaActivity extends AppCompatActivity{
 
@@ -38,7 +40,7 @@ public class DeltaActivity extends AppCompatActivity{
 
     /**
      *accet au calendar android depuis le bouton date picker 1
-     * @param v
+     * @param v view
      */
     public void showDatePickerDialog1(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
@@ -48,7 +50,7 @@ public class DeltaActivity extends AppCompatActivity{
 
     /**
      *accet au calendar android depuis le bouton date picker 2
-     * @param v
+     * @param v view
      */
     public void showDatePickerDialog2(View v){
         DatePickerFragment newFragment = new DatePickerFragment();
@@ -63,7 +65,7 @@ public class DeltaActivity extends AppCompatActivity{
 
     /**
      * affiche la difference entre date1 et date2 lors de l'appuis sur le bouton calcul
-     * @param v
+     * @param v view
      */
     public void calcul(View v){
         try {
@@ -75,15 +77,15 @@ public class DeltaActivity extends AppCompatActivity{
             this.centerText(textViewResultatDate);
             switch(time){
                 case "Jours" :
-                    textViewResultatDate.setText(Integer.toString(DateUtils.deltaDays(date1,date2)));
+                    textViewResultatDate.setText(String.format(Locale.getDefault(),"%d",DateUtils.deltaDays(date1,date2)));
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.green));
                     break;
                 case "Mois" :
-                    textViewResultatDate.setText(Integer.toString(DateUtils.deltaMonth(date1,date2)));
+                    textViewResultatDate.setText(String.format(Locale.getDefault(),"%d",DateUtils.deltaMonth(date1,date2)));
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.green));
                     break;
                 case "Années" :
-                    textViewResultatDate.setText(Integer.toString(DateUtils.deltaYear(date1,date2)));
+                    textViewResultatDate.setText(String.format(Locale.getDefault(),"%d",DateUtils.deltaYear(date1,date2)));
                     textViewResultatDate.setTextColor(getResources().getColor(R.color.green));
                     break;
                 default:
@@ -99,7 +101,7 @@ public class DeltaActivity extends AppCompatActivity{
     }
     /**
      * lors de l'apuis sur le sur le bouton select 1 la list des evenements aparais
-     * @param v
+     * @param v view
      */
     public void select1(View v){
         ListEventsFragment newFragment = new ListEventsFragment();
@@ -108,7 +110,7 @@ public class DeltaActivity extends AppCompatActivity{
     }
     /**
      * lors de l'apuis sur le sur le bouton select 2 la list des evenements aparais
-     * @param v
+     * @param v view
      */
     public void select2(View v){
         ListEventsFragment newFragment = new ListEventsFragment();

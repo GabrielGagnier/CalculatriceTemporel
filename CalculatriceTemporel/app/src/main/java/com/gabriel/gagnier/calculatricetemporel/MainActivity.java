@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.gabriel.gagnier.calculatricetemporel.fragments.listEventFragment.CRUDListEventsFragment;
-import com.gabriel.gagnier.calculatricetemporel.util.database.DataBaseHelper;
+import com.gabriel.gagnier.calculatricetemporel.view.fragments.listEventFragment.CRUDListEventsFragment;
+import com.gabriel.gagnier.calculatricetemporel.model.database.DataBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 

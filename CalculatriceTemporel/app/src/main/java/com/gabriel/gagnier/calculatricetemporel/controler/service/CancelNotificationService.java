@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.services.notification;
+package com.gabriel.gagnier.calculatricetemporel.controler.service;
 
 import android.app.AlarmManager;
 import android.app.IntentService;
@@ -6,10 +6,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.app.Notification;
 
-import com.gabriel.gagnier.calculatricetemporel.util.notification.NotificationPublisher;
+import com.gabriel.gagnier.calculatricetemporel.controler.receiver.NotificationPublisher;
 
 /**
  * Intent gerer par un thread non applicatif
@@ -28,7 +26,7 @@ public class CancelNotificationService extends IntentService  {
 
     /**
      * verifie que une notification et le delay sont bien placer en extra et envoie la notification planifier
-     * @param intent
+     * @param intent contenent l'id de la notification a annuler
      */
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -39,7 +37,7 @@ public class CancelNotificationService extends IntentService  {
 
     /**
      * annule la notification
-     * @param idNotification
+     * @param idNotification qui va etre annuler
      */
     private void cancelNotification(int idNotification) {
             Intent notificationIntent = new Intent(this, NotificationPublisher.class);

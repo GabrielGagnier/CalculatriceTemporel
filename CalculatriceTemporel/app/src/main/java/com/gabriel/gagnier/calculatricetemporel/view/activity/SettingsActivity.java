@@ -1,4 +1,4 @@
-package com.gabriel.gagnier.calculatricetemporel.activity;
+package com.gabriel.gagnier.calculatricetemporel.view.activity;
 
 
 import android.annotation.TargetApi;

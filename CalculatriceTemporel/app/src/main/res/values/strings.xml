@@ -81,4 +81,15 @@
     <string name="pref_title_time_notifications">Time to be notifiate</string>
     <string name="pref_title_number_notifications">Day befor the event to be notifiate</string>
 
+    <!-- Strings related to fragment_event -->
+    <string name="libelle">Libelle :</string>
+    <string name="commentaire">Commentaire :</string>
+    <string name="notification">Notification</string>
+    <string name="save">Save</string>
+    <string name="date">Date :</string>
+
+    <string name="time">Time :</string>
+    <string name="evenements">Evenements :</string>
+
+    <string name="donne_mal_renseigne">Données mal renseigné!</string>
 </resources>
